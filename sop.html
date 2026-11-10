@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Great State · Customer Experience & Service Excellence SOP Bible</title>
 <style>
-/* Luxury Black & Gold Theme */
+/* Luxury Black & Gold Theme (Mobile First Optimized) */
 :root{
   --bg:#050505;
   --panel:#0e0e10;
@@ -20,83 +20,93 @@
   --red:#ff453a;
   --radius:12px;
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;letter-spacing:-0.01em}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;letter-spacing:-0.01em;padding-bottom:30px}
 
-header{background:linear-gradient(180deg,#121215,#050505);border-bottom:1px solid var(--line);padding:45px 20px 35px;text-align:center;position:relative}
+header{background:linear-gradient(180deg,#121215,#050505);border-bottom:1px solid var(--line);padding:40px 20px 25px;text-align:center;position:relative}
 header .tag{color:var(--gold);font-size:11px;letter-spacing:.25em;font-weight:800;text-transform:uppercase}
-header h1{font-size:32px;margin:12px 0 8px;letter-spacing:-.03em;color:#ffffff;font-weight:800}
-header p{color:var(--muted);font-size:13px;max-width:800px;margin:auto;line-height:1.6}
+header h1{font-size:24px;margin:12px 0 8px;letter-spacing:-.03em;color:#ffffff;font-weight:800;line-height:1.3}
+header p{color:var(--muted);font-size:12px;max-width:800px;margin:auto;line-height:1.5}
 
-.container{max-width:1300px;margin:auto;padding:30px 20px}
+.back-btn-container{position:absolute;left:16px;top:16px}
 
-.controls-bar{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:24px;background:var(--panel);padding:14px 20px;border-radius:var(--radius);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
-.search-box input{background:#000000;border:1px solid var(--line);color:var(--text);padding:9px 16px;border-radius:8px;width:280px;outline:none;font-size:13px;transition:border-color .2s}
+.container{max-width:1300px;margin:auto;padding:20px 16px}
+
+.controls-bar{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:20px;background:var(--panel);padding:14px;border-radius:var(--radius);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.search-box{width:100%}
+.search-box input{background:#000000;border:1px solid var(--line);color:var(--text);padding:12px 16px;border-radius:8px;width:100%;outline:none;font-size:13px;transition:border-color .2s;-webkit-appearance:none}
 .search-box input:focus{border-color:var(--gold)}
 
-.nav-tabs{display:flex;gap:8px;flex-wrap:wrap}
-.nav-tabs button{background:#000000;border:1px solid var(--line);color:var(--muted);padding:9px 16px;border-radius:8px;cursor:pointer;font-weight:600;font-size:12px;transition:all .2s ease}
+.nav-tabs{display:flex;gap:8px;overflow-x:auto;width:100%;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.nav-tabs button{background:#000000;border:1px solid var(--line);color:var(--muted);padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;font-size:12px;white-space:nowrap;transition:all .2s ease;flex-shrink:0}
 .nav-tabs button.active,.nav-tabs button:hover{background:var(--panel2);color:var(--gold);border-color:var(--gold);box-shadow:0 0 12px var(--gold-glow)}
 
 .section{display:none}
 .section.active{display:block}
 
-.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-bottom:22px;box-shadow:0 8px 32px rgba(0,0,0,0.6)}
-.card h2{color:var(--gold);font-size:21px;margin-top:0;border-bottom:1px solid var(--line);padding-bottom:12px;display:flex;justify-content:space-between;align-items:center;letter-spacing:-.02em}
-.card h3{color:var(--gold-light);font-size:16px;margin:24px 0 12px;border-left:3px solid var(--gold);padding-left:12px}
-.card h4{color:#ffffff;font-size:14px;margin:16px 0 6px;font-weight:700}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:0 8px 32px rgba(0,0,0,0.6)}
+.card h2{color:var(--gold);font-size:18px;margin-top:0;border-bottom:1px solid var(--line);padding-bottom:10px;display:flex;justify-content:space-between;align-items:center;letter-spacing:-.02em}
+.card h3{color:var(--gold-light);font-size:15px;margin:20px 0 10px;border-left:3px solid var(--gold);padding-left:10px}
+.card h4{color:#ffffff;font-size:13.5px;margin:14px 0 6px;font-weight:700}
 
-ul,ol{margin:10px 0;padding-left:22px;color:var(--muted)}
+ul,ol{margin:10px 0;padding-left:20px;color:var(--muted)}
 li{margin-bottom:8px}li strong{color:#ffffff}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:768px){
+  .grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .search-box{width:280px}
+  .search-box input{width:280px}
+  header h1{font-size:32px}
+  header p{font-size:13px}
+  .card{padding:26px}
+  .card h2{font-size:21px}
+}
 
-.highlight{background:var(--gold-glow);border-left:3px solid var(--gold);padding:16px 20px;margin:18px 0;border-radius:0 var(--radius) var(--radius) 0;color:var(--text);border-top:1px solid rgba(212,175,55,0.1);border-right:1px solid rgba(212,175,55,0.1);border-bottom:1px solid rgba(212,175,55,0.1)}
+.highlight{background:var(--gold-glow);border-left:3px solid var(--gold);padding:14px 16px;margin:16px 0;border-radius:0 var(--radius) var(--radius) 0;color:var(--text);border-top:1px solid rgba(212,175,55,0.1);border-right:1px solid rgba(212,175,55,0.1);border-bottom:1px solid rgba(212,175,55,0.1);font-size:13px}
 
-.table-responsive{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:8px}
-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px}
-th,td{padding:12px 16px;border-bottom:1px solid var(--line)}
+.table-responsive{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;min-width:450px}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line)}
 th{color:var(--gold);background:#000000;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.05em}
 td{color:var(--muted)}td strong{color:#ffffff}
 tr:last-child td{border-bottom:0}
 
-.accordion{border:1px solid var(--line);border-radius:10px;margin-bottom:14px;overflow:hidden;background:var(--panel);transition:border-color .2s}
-.accordion:hover{border-color:#383842}
-.accordion-header{padding:16px 20px;background:var(--panel2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;color:#ffffff;font-size:14px}
+.accordion{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;overflow:hidden;background:var(--panel);transition:border-color .2s}
+.accordion-header{padding:14px 16px;background:var(--panel2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;color:#ffffff;font-size:13.5px}
 .accordion-header:hover{color:var(--gold)}
-.accordion-content{padding:22px;display:none;border-top:1px solid var(--line);background:var(--panel)}
+.accordion-content{padding:16px;display:none;border-top:1px solid var(--line);background:var(--panel)}
 .accordion.active{border-color:var(--gold)}
 .accordion.active .accordion-content{display:block}
-.accordion-header::after{content:'+';font-size:18px;color:var(--gold);font-weight:400}
+.accordion-header::after{content:'+';font-size:18px;color:var(--gold);font-weight:400;margin-left:8px}
 .accordion.active .accordion-header::after{content:'-'}
 
-.btn{background:var(--gold);color:#000000;border:0;border-radius:8px;padding:10px 18px;font-weight:750;cursor:pointer;transition:all .2s ease;font-size:13px}
+.btn{background:var(--gold);color:#000000;border:0;border-radius:8px;padding:12px 18px;font-weight:750;cursor:pointer;transition:all .2s ease;font-size:13px;display:inline-flex;align-items:center;justify-content:center;width:100%}
+@media(min-width:768px){.btn{width:auto}}
 .btn:hover{background:var(--gold-light);box-shadow:0 0 15px var(--gold-glow)}
-.btn-secondary{background:var(--panel2);color:var(--gold);border:1px solid var(--line);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-secondary{background:var(--panel2);color:var(--gold);border:1px solid var(--line);text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600}
 .btn-secondary:hover{background:var(--line);color:#ffffff}
 
 .form-group{margin-bottom:14px}
 .form-group label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px;font-weight:600}
-.form-group input,.form-group textarea,.form-group select{width:100%;background:#000000;border:1px solid var(--line);border-radius:8px;color:var(--text);padding:10px 14px;outline:none;font-size:13px}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:#000000;border:1px solid var(--line);border-radius:8px;color:var(--text);padding:12px;outline:none;font-size:13px;-webkit-appearance:none}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold)}
 .form-group textarea{min-height:85px;resize:vertical}
 
-.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:10px;font-weight:700;background:#000000;color:var(--gold);border:1px solid var(--line)}
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:9.5px;font-weight:700;background:#000000;color:var(--gold);border:1px solid var(--line);margin-left:6px;white-space:nowrap}
 
-footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);margin-top:40px;background:#000000}
-
-@media(max-width:768px){.controls-bar{flex-direction:column;align-items:stretch}.search-box input{width:100%}}
+footer{text-align:center;padding:25px 16px;color:var(--muted);font-size:11px;border-top:1px solid var(--line);margin-top:30px;background:#000000}
 </style>
 </head>
 <body>
 
 <header>
-  <div style="position: absolute; left: 20px; top: 20px;">
-    <a href="Founder_Command_Center.html" class="btn btn-secondary">← Back to Home</a>
+  <div class="back-btn-container">
+    <a href="index.html" class="btn-secondary">← Back</a>
   </div>
-  <div class="tag">Master Operating Framework · Version 1.0</div>
-  <h1>Great State · Customer Experience & Service Excellence SOP Bible</h1>
-  <p>Core Standard: Great State. Great Service. Great Results. Applies to AXU-II, YGLC, SG and future business units.</p>
+  <div class="tag">Master Operating Framework</div>
+  <h1>Great State · SOP Bible</h1>
+  <p>Core Standard: Great State. Great Service. Great Results. Applies to AXU-II, YGLC, SG & future units.</p>
 </header>
 
 <div class="container">
@@ -157,11 +167,11 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
   <div id="part2" class="section">
     <div class="card">
       <h2>Part II — The 10 Core SOP Systems</h2>
-      <p class="muted">Click any SOP to expand standard procedures, quality criteria, KPIs, and protocols.</p>
+      <p class="muted" style="font-size:12px; margin-bottom:16px">Click any SOP to expand standard procedures, quality criteria, KPIs, and protocols.</p>
 
       <!-- SOP 01 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 01 — CUSTOMER RESEARCH <span class="badge">Research & Intelligence</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 01 — CUSTOMER RESEARCH <span class="badge">Research</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Understand the customer deeply enough to identify what they actually need, value, fear, expect and are willing to pay for. Distinguish between what customers say, do, and actually buy.</p>
           <h4>2. Trigger</h4><p>New product launch, entering new segments, declining conversion, repeated complaints, periodic intelligence reviews.</p>
@@ -183,7 +193,7 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
 
       <!-- SOP 02 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 02 — CUSTOMER DIAGNOSIS <span class="badge">Problem Definition</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 02 — CUSTOMER DIAGNOSIS <span class="badge">Diagnosis</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Identify the customer's real problem and define their Desired Great State before proposing a solution.</p>
           <h4>2. Trigger</h4><p>Inquiry, consultation request, personalized purchase, dissatisfaction report, custom support request.</p>
@@ -203,7 +213,7 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
 
       <!-- SOP 03 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 03 — SOLUTION DESIGN <span class="badge">Architecture & Proposal</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 03 — SOLUTION DESIGN <span class="badge">Architecture</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Design the most appropriate solution to move the customer from Current State to Desired Great State.</p>
           <h4>2. Standard Procedure</h4>
@@ -224,28 +234,28 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
         <div class="accordion-header" onclick="toggleAccordion(this)">SOP 04 — SERVICE DELIVERY <span class="badge">Fulfillment</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Deliver promised solution consistently, accurately, and within agreed conditions.</p>
-          <h4>2. Steps</h4><p>Step 1 — Confirm Order → Step 2 — Complete Onboarding → Step 3 — Prepare Delivery → Step 4 — Execute Service → Step 5 — Maintain Logs → Step 6 — Intermediate Milestone Check → Step 7 — Complete Delivery → Step 8 — Handover & Support Setup.</p>
+          <h4>2. Steps</h4><p>Confirm Order → Complete Onboarding → Prepare Delivery → Execute Service → Maintain Logs → Intermediate Check → Complete Delivery → Handover.</p>
           <h4>3. Quality Standards</h4><p>On-time execution; zero undocumented changes; immediate escalation of delays to customer.</p>
         </div>
       </div>
 
       <!-- SOP 05 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 05 — COMMUNICATION <span class="badge">Interaction Excellence</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 05 — COMMUNICATION <span class="badge">Interaction</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Make every customer interaction clear, timely, professional, and trustworthy.</p>
-          <h4>2. Standard 5-Step Structure</h4><p>1. Acknowledge Request → 2. Explain Relevant Info → 3. State Next Action → 4. Provide Timeline → 5. Confirm What Happens Next.</p>
+          <h4>2. Standard 5-Step Structure</h4><p>1. Acknowledge Request → 2. Explain Relevant Info → 3. State Next Action → 4. Provide Timeline → 5. Confirm Next Steps.</p>
         </div>
       </div>
 
       <!-- SOP 06 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 06 — QUALITY CONTROL <span class="badge">Verification & Testing</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 06 — QUALITY CONTROL <span class="badge">Verification</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Ensure every product or deliverable meets defined standards prior to customer release.</p>
           <h4>2. Defect Classification</h4>
           <ul>
-            <li><strong>Critical:</strong> Blocks safe or core functional use. (Release forbidden).</li>
+            <li><strong>Critical:</strong> Blocks safe or core functional use (Release forbidden).</li>
             <li><strong>Major:</strong> Materially affects outcome or experience.</li>
             <li><strong>Minor:</strong> Aesthetic or non-material flaw requiring documentation.</li>
           </ul>
@@ -254,25 +264,25 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
 
       <!-- SOP 07 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 07 — PROBLEM RECOVERY <span class="badge">Trust Restoration</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 07 — PROBLEM RECOVERY <span class="badge">Recovery</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Recover trust and resolve failures through fast, fair, and accountable action.</p>
-          <h4>2. Recovery Protocol</h4><p>1. Receive & Acknowledge → 2. Assess Severity → 3. Contain Damage → 4. Investigate Root Cause → 5. Honest Communication → 6. Execute Recovery → 7. Confirm Resolution → 8. Prevent Recurrence.</p>
+          <h4>2. Recovery Protocol</h4><p>1. Receive & Acknowledge → 2. Assess Severity → 3. Contain Damage → 4. Root Cause Analysis → 5. Honest Comm → 6. Execute Recovery → 7. Confirm Resolution.</p>
         </div>
       </div>
 
       <!-- SOP 08 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 08 — CUSTOMER SUCCESS <span class="badge">Outcome Verification</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 08 — CUSTOMER SUCCESS <span class="badge">Outcome</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Verify that customers achieve real outcomes rather than simply receiving a product or service.</p>
-          <h4>2. Procedure</h4><p>Baseline Recording → Metric Definition → Success Plan → Progress Monitoring → Barrier Removal → Outcome Verification → Case Study Documentation.</p>
+          <h4>2. Procedure</h4><p>Baseline Recording → Metric Definition → Success Plan → Progress Monitoring → Barrier Removal → Outcome Verification.</p>
         </div>
       </div>
 
       <!-- SOP 09 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 09 — RETENTION & RELATIONSHIP <span class="badge">Long-Term Value</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 09 — RETENTION & RELATIONSHIP <span class="badge">Retention</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Build durable relationships through earned value, trust, and continuous relevance—never manipulation.</p>
           <h4>2. Principles</h4><p>Clear cancellation policies; zero forced upselling; regular relationship value reviews.</p>
@@ -281,7 +291,7 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
 
       <!-- SOP 10 -->
       <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 10 — CONTINUOUS IMPROVEMENT <span class="badge">Systemic Evolution</span></div>
+        <div class="accordion-header" onclick="toggleAccordion(this)">SOP 10 — CONTINUOUS IMPROVEMENT <span class="badge">Evolution</span></div>
         <div class="accordion-content">
           <h4>1. Purpose</h4><p>Convert feedback, failures, and operational data into standardized SOP updates.</p>
           <h4>2. Procedure</h4><p>Collect Evidence → Identify Improvement → Prioritize Impact → Root Cause Analysis → Controlled Testing → Standardize Version Control.</p>
@@ -303,13 +313,13 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
       <div class="table-responsive">
         <table>
           <thead>
-            <tr><th>Role Code</th><th>Definition</th><th>Operational Principle</th></tr>
+            <tr><th>Role</th><th>Definition</th><th>Principle</th></tr>
           </thead>
           <tbody>
             <tr><td><strong>R — Responsible</strong></td><td>Performs the execution steps.</td><td>Does the actual work.</td></tr>
-            <tr><td><strong>A — Accountable</strong></td><td>Owns the final result & decision.</td><td>Exactly ONE Accountable owner per process.</td></tr>
-            <tr><td><strong>C — Consulted</strong></td><td>Provides expert input/data.</td><td>Two-way communication prior to decision.</td></tr>
-            <tr><td><strong>I — Informed</strong></td><td>Updated on status/outcome.</td><td>One-way notification after execution.</td></tr>
+            <tr><td><strong>A — Accountable</strong></td><td>Owns final result & decision.</td><td>Exactly ONE Accountable owner.</td></tr>
+            <tr><td><strong>C — Consulted</strong></td><td>Provides expert input/data.</td><td>Two-way prior communication.</td></tr>
+            <tr><td><strong>I — Informed</strong></td><td>Updated on status/outcome.</td><td>One-way post notification.</td></tr>
           </tbody>
         </table>
       </div>
@@ -317,22 +327,22 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
       <h3>3.3 Escalation Matrix</h3>
       <div class="grid">
         <div class="card" style="background:#000000">
-          <h4>Level 1 — Standard Operations</h4>
+          <h4 style="margin-top:0">Level 1 — Standard Operations</h4>
           <p class="muted">Handled directly by assigned Service Owner within normal SOP boundaries.</p>
         </div>
         <div class="card" style="background:#000000">
-          <h4>Level 2 — Operational Exceptions</h4>
+          <h4 style="margin-top:0">Level 2 — Operational Exceptions</h4>
           <p class="muted">Escalated to Operations Supervisor when steps deviate or minor delays occur.</p>
         </div>
         <div class="card" style="background:#000000">
-          <h4>Level 3 — Critical Incidents</h4>
+          <h4 style="margin-top:0">Level 3 — Critical Incidents</h4>
           <p class="muted">Escalated immediately to Founder/Authorized Decision Maker (privacy breaches, financial errors, major outages).</p>
         </div>
       </div>
 
       <h3>3.4 Universal Definition of Done</h3>
       <div class="highlight">
-        <strong>A task is DONE only when:</strong> Procedure was strictly followed + Output exists + Quality check passed + System records updated + Customer result verified + Next owner assigned.
+        <strong>A task is DONE only when:</strong> Procedure followed + Output exists + Quality check passed + System updated + Customer result verified + Next owner assigned.
       </div>
     </div>
   </div>
@@ -349,13 +359,12 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
             <tr><th>Dimension</th><th>Metric</th><th>Target Standard</th></tr>
           </thead>
           <tbody>
-            <tr><td>Understanding</td><td>Diagnosis Accuracy</td><td>&gt; 95% confirmed by customer</td></tr>
-            <tr><td>Responsiveness</td><td>First Response Time</td><td>&lt; 15 mins (Inquiries/Support)</td></tr>
-            <tr><td>Delivery</td><td>On-Time Delivery Rate</td><td>100% agreed schedule compliance</td></tr>
-            <tr><td>Quality</td><td>First-Pass Quality Rate</td><td>&gt; 98% defect-free releases</td></tr>
-            <tr><td>Resolution</td><td>Complaint Resolution Rate</td><td>100% resolved with root-cause log</td></tr>
-            <tr><td>Outcome</td><td>Verified Customer Success</td><td>&gt; 90% achieved target outcome</td></tr>
-            <tr><td>Retention</td><td>Repeat Purchase & Renewal</td><td>Sustainable, non-manipulative repeat rate</td></tr>
+            <tr><td>Understanding</td><td>Diagnosis Accuracy</td><td>&gt; 95% confirmed</td></tr>
+            <tr><td>Responsiveness</td><td>First Response Time</td><td>&lt; 15 mins</td></tr>
+            <tr><td>Delivery</td><td>On-Time Delivery Rate</td><td>100% schedule compliance</td></tr>
+            <tr><td>Quality</td><td>First-Pass Quality Rate</td><td>&gt; 98% defect-free</td></tr>
+            <tr><td>Resolution</td><td>Complaint Resolution</td><td>100% resolved with log</td></tr>
+            <tr><td>Outcome</td><td>Verified Success</td><td>&gt; 90% achieved outcome</td></tr>
           </tbody>
         </table>
       </div>
@@ -376,40 +385,38 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
   <!-- PART V -->
   <div id="part5" class="section">
     <div class="card">
-      <h2>Part V — Business-Specific Implementation</h2>
+      <h2>Part V — Business Implementation</h2>
       <div class="grid">
         <div class="card" style="background:#000000">
-          <h3 style="margin-top:0">AXU-II · AI Access & Solutions</h3>
-          <p><strong>Great State:</strong> Access and apply curated AI tools/workflows with zero selection friction and measurable productivity gains.</p>
+          <h3 style="margin-top:0">AXU-II · AI Solutions</h3>
+          <p><strong>Great State:</strong> Access & apply curated AI tools/workflows with zero friction and measurable productivity gains.</p>
           <h4>Brand-Specific SOP Modules:</h4>
           <ul>
             <li>AI Product & Resource Verification</li>
             <li>AI Workflow Configuration & Setup</li>
             <li>Technical Support & Updates</li>
-            <li>Implementation Verification</li>
           </ul>
         </div>
 
         <div class="card" style="background:#000000">
           <h3 style="margin-top:0">YGLC · Premium Learning</h3>
-          <p><strong>Great State:</strong> Build practical fingerstyle/musical capabilities with verified progress and structured feedback.</p>
+          <p><strong>Great State:</strong> Build practical fingerstyle capabilities with verified progress and structured feedback.</p>
           <h4>Brand-Specific SOP Modules:</h4>
           <ul>
             <li>Student Diagnostic Assessment</li>
             <li>Personalized Learning Path Design</li>
             <li>Practice Feedback & Video Review SOP</li>
-            <li>Skill Outcome Verification</li>
           </ul>
         </div>
 
         <div class="card" style="background:#000000">
           <h3 style="margin-top:0">SG · Premium Transformation</h3>
-          <p><strong>Great State:</strong> Refine thinking, systems, and execution capacity through private, high-value founder experiences.</p>
+          <p><strong>Great State:</strong> Refine thinking, systems, and execution capacity through private founder experiences.</p>
           <h4>Brand-Specific SOP Modules:</h4>
           <ul>
             <li>Private Member Onboarding</li>
             <li>Bespoke Systems Architecture</li>
-            <li>Membership Relationship Management</li>
+            <li>Membership Management</li>
           </ul>
         </div>
       </div>
@@ -419,15 +426,15 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
   <!-- PART VI -->
   <div id="part6" class="section">
     <div class="card">
-      <h2>Part VI — The Compounding Advantage & Audit Logger</h2>
+      <h2>Part VI — Flywheel & Audit Logger</h2>
       
       <h3>6.1 The Great State Flywheel</h3>
-      <p>Customer Research → Accurate Diagnosis → Solution Design → Service Delivery → Quality Verification → Customer Success → Retention → Data Feedback → Continuous Improvement → Superior Experience.</p>
+      <p>Research → Diagnosis → Solution Design → Delivery → Verification → Success → Retention → Continuous Improvement.</p>
 
-      <h3>6.2 Interactive SOP Execution & Audit Log</h3>
-      <p class="muted">Log an SOP execution or audit check directly to your Google Sheets database.</p>
+      <h3>6.2 Interactive SOP Audit Log</h3>
+      <p class="muted" style="font-size:12px; margin-bottom:14px">Log an SOP execution or audit check directly to Google Sheets.</p>
       
-      <div class="card" style="background:#000000">
+      <div class="card" style="background:#000000; padding:16px">
         <form id="sopLogForm" onsubmit="submitSOPLog(event)">
           <div class="grid">
             <div class="form-group">
@@ -452,7 +459,7 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
           </div>
           <div class="form-group">
             <label>Current State → Desired State Findings</label>
-            <textarea id="logDetails" placeholder="Describe the diagnosed gap, outcome verified, or quality audit result..." required></textarea>
+            <textarea id="logDetails" placeholder="Describe diagnosed gap, outcome verified, or audit result..." required></textarea>
           </div>
           <div class="form-group">
             <label>Definition of Done Verified?</label>
@@ -468,7 +475,7 @@ footer{text-align:center;padding:35px;color:var(--muted);font-size:12px;border-t
 </div>
 
 <footer>
-  Great State Master Operating Framework · Economic Architect Operating System · Exportable & Synchronized
+  Great State Master Operating Framework · Economic Architect OS
 </footer>
 
 <script>
@@ -481,6 +488,7 @@ function showTab(evt, partId) {
   for (let b of buttons) { b.classList.remove("active"); }
   document.getElementById(partId).classList.add("active");
   evt.currentTarget.classList.add("active");
+  window.scrollTo(0, 0);
 }
 
 function toggleAccordion(element) {

@@ -2,7 +2,7 @@
 <html lang="my" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Flywheel & Ecosystem Command - Founder Operating System</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +15,7 @@
                         bg: '#09090b',
                         card: '#121215',
                         border: '#27272a',
-                        accent: '#eab308', // Gold accent seen in UI
+                        accent: '#eab308',
                     },
                     fontFamily: {
                         sans: ['Inter', 'Padauk', 'sans-serif'],
@@ -36,8 +36,8 @@
             background-color: #09090b;
             color: #f4f4f5;
             font-family: 'Inter', 'Padauk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -65,11 +65,11 @@
 </head>
 <body class="min-h-screen flex flex-col md:flex-row antialiased">
 
-    <!-- Sidebar Navigation (Matching Founder Command Center UI) -->
+    <!-- Sidebar Navigation -->
     <aside class="w-full md:w-64 bg-[#09090b] border-r border-[#27272a] p-4 flex flex-col justify-between shrink-0">
         <div>
             <!-- Header Brand -->
-            <div class="mb-8 px-2">
+            <div class="mb-6 px-2">
                 <div class="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-1">Economic Architect</div>
                 <h1 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
                     Founder Command Center
@@ -78,31 +78,31 @@
 
             <!-- Nav Links -->
             <nav class="space-y-1">
-                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
                     <i class="fa-solid fa-chart-pie w-4"></i> Overview
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
                     <i class="fa-solid fa-clock-rotate-left w-4"></i> Daily Scorecard
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
                     <i class="fa-solid fa-check-double w-4"></i> 5 Habits
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
                     <i class="fa-solid fa-gem w-4"></i> Brand DNA
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
                     <i class="fa-solid fa-brain w-4"></i> Thinking Gym
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-amber-400 bg-zinc-900/80 font-medium rounded-md border border-amber-500/20 shadow-sm">
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-sm text-amber-400 bg-zinc-900/80 font-medium rounded-md border border-amber-500/20 shadow-sm">
                     <i class="fa-solid fa-list-check w-4"></i> Ecosystem Roadmap
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                <a href="sop.html" class="flex items-center gap-3 px-3 py-2.5 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
                     <i class="fa-solid fa-book w-4"></i> SOP Bible (Great State)
                 </a>
             </nav>
         </div>
 
-        <div class="mt-8 pt-4 border-t border-[#27272a] text-xs text-zinc-500 px-2">
+        <div class="mt-8 pt-4 border-t border-[#27272a] text-xs text-zinc-500 px-2 hidden md:block">
             Monochrome Edition • Local Sync
         </div>
     </aside>
@@ -115,16 +115,16 @@
             <div>
                 <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Personal Operating System</span>
                 <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mt-1">Flywheel & Ecosystem Command</h2>
-                <p class="text-sm text-zinc-400 mt-1 bg-amber-500/10 border-l-2 border-amber-500 px-3 py-1.5 rounded-r mt-2">
+                <p class="text-sm text-zinc-400 mt-2 bg-amber-500/10 border-l-2 border-amber-500 px-3 py-1.5 rounded-r">
                     💡 "Revenue တစ်ခုတည်းနဲ့ Yang Community အောင်မြင်မှုကို မတိုင်းတာသင့်ဘူး။"
                 </p>
             </div>
             
             <div class="flex items-center gap-2">
-                <button onclick="exportProgress()" class="text-xs px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 rounded-md transition flex items-center gap-2">
+                <button onclick="exportProgress()" class="text-xs px-3.5 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 rounded-md transition flex items-center gap-2 font-medium">
                     <i class="fa-solid fa-download"></i> Export Data
                 </button>
-                <button onclick="resetTasks()" class="text-xs px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-rose-400 border border-zinc-800 rounded-md transition flex items-center gap-2">
+                <button onclick="resetTasks()" class="text-xs px-3.5 py-2 bg-zinc-900 hover:bg-zinc-800 text-rose-400 border border-zinc-800 rounded-md transition flex items-center gap-2 font-medium">
                     <i class="fa-solid fa-rotate"></i> Reset Progress
                 </button>
             </div>
@@ -162,7 +162,7 @@
         <!-- Tab & Filter Bar -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-zinc-800 mb-6 pb-2">
             <!-- Navigation Tabs -->
-            <div class="flex gap-6 overflow-x-auto w-full sm:w-auto">
+            <div class="flex gap-6 overflow-x-auto w-full sm:w-auto pb-1">
                 <button onclick="switchTab('action')" id="tab-action" class="pb-3 text-sm font-medium text-zinc-400 hover:text-white transition whitespace-nowrap tab-active">
                     <i class="fa-solid fa-bolt mr-1.5 text-xs"></i> Action Priorities (လုပ်ရမယ့်အလုပ်)
                 </button>
@@ -176,12 +176,12 @@
 
             <!-- Search Bar -->
             <div class="relative w-full sm:w-64">
-                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-zinc-500"></i>
-                <input type="text" id="searchInput" oninput="filterTables()" placeholder="Search tasks or metrics..." class="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-amber-500 transition">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-xs text-zinc-500"></i>
+                <input type="text" id="searchInput" oninput="filterTables()" placeholder="Search tasks or metrics..." class="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-2 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-amber-500 transition">
             </div>
         </div>
 
-        <!-- TAB CONTENT 1: ACTION PRIORITIES (Ranked Priorities) -->
+        <!-- TAB CONTENT 1: ACTION PRIORITIES -->
         <section id="content-action" class="space-y-4">
             <div class="glass-card rounded-lg overflow-hidden">
                 <div class="p-4 border-b border-zinc-800 flex justify-between items-center bg-zinc-900/50">
@@ -190,7 +190,7 @@
                         <p class="text-xs text-zinc-400">Sequential order for ecosystem rollout</p>
                     </div>
                     <div class="flex gap-2">
-                        <select id="priorityFilter" onchange="filterTables()" class="bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 rounded px-2 py-1 focus:outline-none">
+                        <select id="priorityFilter" onchange="filterTables()" class="bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 rounded px-2.5 py-1.5 focus:outline-none">
                             <option value="ALL">All Priorities</option>
                             <option value="Critical">Critical Only</option>
                             <option value="High">High Only</option>
@@ -200,7 +200,7 @@
                     </div>
                 </div>
                 <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm text-zinc-300">
+                    <table class="w-full text-left text-sm text-zinc-300 min-w-[500px]">
                         <thead class="text-xs uppercase bg-zinc-900/80 text-zinc-400 border-b border-zinc-800">
                             <tr>
                                 <th class="py-3 px-4 w-12 text-center">Done</th>
@@ -225,7 +225,7 @@
                     <p class="text-xs text-zinc-400">Core structural components driving flywheel velocity</p>
                 </div>
                 <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm text-zinc-300">
+                    <table class="w-full text-left text-sm text-zinc-300 min-w-[500px]">
                         <thead class="text-xs uppercase bg-zinc-900/80 text-zinc-400 border-b border-zinc-800">
                             <tr>
                                 <th class="py-3 px-4 w-16 text-center">Priority</th>
@@ -249,7 +249,7 @@
                     <p class="text-xs text-zinc-400">Metrics to measure Yang Community success holistic growth</p>
                 </div>
                 <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm text-zinc-300">
+                    <table class="w-full text-left text-sm text-zinc-300 min-w-[500px]">
                         <thead class="text-xs uppercase bg-zinc-900/80 text-zinc-400 border-b border-zinc-800">
                             <tr>
                                 <th class="py-3 px-4 w-1/3">KPI Name</th>
@@ -268,7 +268,6 @@
 
     <!-- JavaScript Data & Interactivity -->
     <script>
-        // Data Sources from Images
         const flywheelTasks = [
             { id: 1, task: "Shared Customer Database", impact: "Customer Asset" },
             { id: 2, task: "Cross-Brand Customer ID", impact: "Ecosystem Integration" },
@@ -308,10 +307,8 @@
             { rank: 10, action: "Advanced Automation", priority: "Later" }
         ];
 
-        // Saved Checkbox State
         let completedTasks = JSON.parse(localStorage.getItem('founder_tasks_completed')) || [];
 
-        // Priority Badge Helper
         function getPriorityBadge(priority) {
             switch(priority) {
                 case 'Critical':
@@ -327,7 +324,6 @@
             }
         }
 
-        // Render Tables
         function renderActionTable() {
             const tbody = document.getElementById('actionTableBody');
             tbody.innerHTML = '';
@@ -385,7 +381,6 @@
             });
         }
 
-        // Toggle Local Task Completion
         function toggleTask(rank) {
             if (completedTasks.includes(rank)) {
                 completedTasks = completedTasks.filter(r => r !== rank);
@@ -414,7 +409,6 @@
             document.getElementById('progressBar').style.width = `${pct}%`;
         }
 
-        // Tab Switching
         function switchTab(tabKey) {
             ['action', 'flywheel', 'kpi'].forEach(key => {
                 const content = document.getElementById(`content-${key}`);
@@ -429,12 +423,10 @@
             });
         }
 
-        // Universal Table Filtering
         function filterTables() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const priorityVal = document.getElementById('priorityFilter').value;
 
-            // Filter Action Table
             const actionRows = document.querySelectorAll('#actionTableBody tr');
             actionRows.forEach(row => {
                 const textMatch = row.getAttribute('data-text').includes(query);
@@ -442,14 +434,12 @@
                 row.style.display = (textMatch && priorityMatch) ? '' : 'none';
             });
 
-            // Filter Flywheel Table
             const flywheelRows = document.querySelectorAll('#flywheelTableBody tr');
             flywheelRows.forEach(row => {
                 const textMatch = row.getAttribute('data-text').includes(query);
                 row.style.display = textMatch ? '' : 'none';
             });
 
-            // Filter KPI Table
             const kpiRows = document.querySelectorAll('#kpiTableBody tr');
             kpiRows.forEach(row => {
                 const textMatch = row.getAttribute('data-text').includes(query);
@@ -457,7 +447,6 @@
             });
         }
 
-        // Export Backup
         function exportProgress() {
             const exportData = {
                 completedTasks: completedTasks,
@@ -472,7 +461,6 @@
             downloadAnchor.remove();
         }
 
-        // Init Page
         window.onload = function() {
             renderActionTable();
             renderFlywheelTable();
