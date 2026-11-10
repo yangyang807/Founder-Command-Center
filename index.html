@@ -203,6 +203,7 @@ table.data-table tr:last-child td{border-bottom:0}
     <div class="muted" id="today"></div>
   </div>
   <div class="actions">
+    <a href="sop.html" class="btn secondary" style="text-decoration:none; color:var(--gold); border-color:var(--gold)">📖 SOP Bible</a>
     <button class="btn secondary" onclick="exportData()">Export Backup</button>
     <button class="btn secondary" onclick="document.getElementById('importFile').click()">Import Data</button>
     <input id="importFile" type="file" accept=".json" hidden onchange="importData(event)">
@@ -217,6 +218,21 @@ table.data-table tr:last-child td{border-bottom:0}
     <div class="card"><div class="muted small">DEEP WORK</div><div class="metric" id="deepMetric">7.5<small> / 10</small></div><div class="muted small">Protect highest-value output</div></div>
     <div class="card"><div class="muted small">PRIMARY ATTENTION</div><div class="metric" style="font-size:17px" id="attentionMetric">Marketing & Distribution</div><div class="muted small">One primary area at a time</div></div>
   </div>
+
+  <!-- MOBILE QUICK ACCESS CARD FOR SOP BIBLE -->
+  <div class="card" style="margin-top:18px; background:linear-gradient(135deg, var(--panel), var(--panel2)); border: 1px solid var(--gold);">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div>
+        <div style="color:var(--gold); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.15em;">Master Framework</div>
+        <h3 style="margin:4px 0 0; color:#fff; font-size:18px;">Customer Experience & SOP Bible</h3>
+        <p class="muted" style="margin:4px 0 0; font-size:12.5px;">Core standards for AXU-II, YGLC & Solo Genius units.</p>
+      </div>
+      <a href="sop.html" style="text-decoration:none;">
+        <button class="btn" style="background:var(--gold); color:#000;">Open SOP Bible 📖</button>
+      </a>
+    </div>
+  </div>
+
   <div class="section"><h3>Today's Operating Focus</h3><span class="pill">One day · One primary outcome</span></div>
   <div class="grid g2">
     <div class="card">
