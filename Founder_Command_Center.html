@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Founder Command Center · Monochrome Edition</title>
+<style>
+/* Monochrome Minimalist Theme (Black, White, Slate & Gold Accents) */
+:root{--bg:#080808;--panel:#111111;--panel2:#1a1a1a;--line:#262626;--text:#f5f5f7;--muted:#8e8e93;--accent:#ffffff;--accent2:#d4d4d8;--gold:#e2b714;--red:#ff453a;--radius:14px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+.side{background:#000000;border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{font-size:11px;letter-spacing:.22em;color:var(--gold);font-weight:800}
+.side h1{font-size:19px;line-height:1.2;margin:8px 0 22px;color:#ffffff;letter-spacing:-.02em}
+.nav{display:grid;gap:6px}
+.nav button{background:transparent;color:var(--muted);border:0;text-align:left;padding:11px 12px;border-radius:8px;width:100%;font-weight:500;transition:all .2s ease}
+.nav button.active,.nav button:hover{background:var(--panel2);color:var(--text);border-left:2px solid var(--gold)}
+.sidefoot{position:absolute;bottom:20px;left:16px;right:16px;color:var(--muted);font-size:11px}
+.main{padding:32px;max-width:1500px;width:100%;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.18em;font-weight:800}
+.top h2{font-size:28px;margin:4px 0;letter-spacing:-.03em}
+.muted{color:var(--muted)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:var(--text);color:#000000;border:0;border-radius:8px;padding:9px 14px;font-weight:700;transition:opacity .2s}
+.btn:hover{opacity:0.9}
+.btn.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
+.btn.danger{background:#3a1212;color:#ff8080}
+.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+.card h3{margin:0 0 12px;font-size:15px;color:#ffffff}
+.metric{font-size:32px;font-weight:800;letter-spacing:-.04em;color:#ffffff}
+.metric small{font-size:12px;color:var(--muted);font-weight:500}
+.pill{display:inline-flex;align-items:center;border:1px solid var(--line);background:var(--panel2);padding:3px 10px;border-radius:99px;font-size:11px;color:var(--gold);font-weight:600}
+.good{color:var(--text)}
+.bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:10px}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--muted),var(--text));border-radius:99px}
+.section{margin:24px 0 12px;display:flex;justify-content:space-between;align-items:center}
+.section h3{margin:0;font-size:18px;color:#ffffff}
+.field{display:grid;gap:6px;margin:10px 0}
+.field label{color:var(--muted);font-size:12px}
+.field input,.field select,.field textarea,.score input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:10px 12px;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{min-height:75px;resize:vertical}
+.scorelist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.score{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.score label{font-size:12px;color:var(--muted)}
+.score input{width:60px;text-align:center;padding:6px;border-radius:6px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}
+.check:last-child{border:0}
+.check input{accent-color:var(--gold);margin-top:4px}
+.check small{display:block;color:var(--muted);font-size:11px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:8px;font-weight:600}
+.tabs button.active{background:var(--text);color:#000000;border-color:var(--text)}
+.hidden{display:none!important}
+.tag{display:inline-block;border:1px solid var(--line);background:var(--panel2);border-radius:6px;padding:2px 8px;font-size:10px;color:var(--gold);font-weight:700}
+.notice{background:#141414;border:1px solid var(--line);border-radius:10px;padding:14px;color:var(--muted);font-size:12px}
+.hero{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brandgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.dna{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dna .field{margin:0}
+.kpi{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.kpi:last-child{border:0}
+.footer{color:var(--muted);font-size:11px;margin-top:32px;border-top:1px solid var(--line);padding-top:16px}
+
+/* Data Table Styling for Tasks & KPIs */
+.table-wrap{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:8px}
+table.data-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px}
+table.data-table th{background:var(--panel2);color:var(--gold);padding:12px;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+table.data-table td{padding:12px;border-bottom:1px solid var(--line);color:var(--text)}
+table.data-table tr:last-child td{border-bottom:0}
+table.data-table tr:hover td{background:rgba(255,255,255,0.02)}
+.badge-critical{background:#3a1212;color:#ff8080;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block}
+.badge-high{background:#3a2c12;color:#ffd180;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block}
+.badge-medium{background:#122a3a;color:#80d4ff;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block}
+.badge-later{background:var(--panel2);color:var(--muted);padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block}
+
+@media(max-width:950px){.app{grid-template-columns:1fr}.side{height:auto;position:relative;padding:16px}.sidefoot{display:none}.nav{grid-template-columns:repeat(3,1fr)}.main{padding:20px}.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.g3,.g2,.brandgrid,.dna,.scorelist{grid-template-columns:1fr}.top{display:block}.actions{margin-top:12px}.nav{grid-template-columns:repeat(2,1fr)}}
+</style>
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand">ECONOMIC ARCHITECT</div>
+  <h1>Founder<br>Command Center</h1>
+  <nav class="nav" id="nav">
+    <button class="active" onclick="switchPage('dashboard', this)">◫ Overview</button>
+    <button onclick="switchPage('daily', this)">◷ Daily Scorecard</button>
+    <button onclick="switchPage('habits', this)">✓ 5 Habits</button>
+    <button onclick="switchPage('brands', this)">◇ Brand DNA</button>
+    <button onclick="switchPage('thinking', this)">⌘ Thinking Gym</button>
+    <button onclick="switchPage('tasks', this)" style="color:var(--gold); font-weight:700;">☷ Task Operating System</button>
+    <button onclick="switchPage('checklists', this)">☷ Checklists</button>
+    <button onclick="switchPage('business', this)">↗ Business OS</button>
+    <button onclick="switchPage('review', this)">▤ Reviews & Data</button>
+    <a href="sop.html" style="text-decoration: none; display: block; margin-top: 10px;">
+      <button type="button" style="width: 100%; color: var(--gold); border: 1px solid var(--line); background: rgba(226,183,20,0.05); text-align: left; padding: 11px 12px; border-radius: 8px; cursor: pointer; font-weight: 600;">📖 SOP Bible (Great State)</button>
+    </a>
+  </nav>
+  <div class="sidefoot">Monochrome Edition · Supabase Synced</div>
+</aside>
+
+<main class="main">
+<header class="top">
+  <div>
+    <div class="eyebrow">PERSONAL OPERATING SYSTEM</div>
+    <h2 id="pageTitle">Founder Overview</h2>
+    <div class="muted" id="today"></div>
+  </div>
+  <div class="actions">
+    <button class="btn secondary" onclick="exportData()">Export Backup</button>
+    <button class="btn secondary" onclick="document.getElementById('importFile').click()">Import Data</button>
+    <input id="importFile" type="file" accept=".json" hidden onchange="importData(event)">
+  </div>
+</header>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page">
+  <div class="grid g4">
+    <div class="card"><div class="muted small">TODAY'S SCORE</div><div class="metric" id="dashScore">7.5<small> / 10</small></div><div class="good" id="dayLabel">GOOD DAY</div><div class="bar"><span id="scoreBar" style="width:75%"></span></div></div>
+    <div class="card"><div class="muted small">QUALITY DAYS</div><div class="metric"><span id="qualityDays">0</span><small> / 200 target</small></div><div class="muted small">365-day operating year</div></div>
+    <div class="card"><div class="muted small">DEEP WORK</div><div class="metric" id="deepMetric">7.5<small> / 10</small></div><div class="muted small">Protect highest-value output</div></div>
+    <div class="card"><div class="muted small">PRIMARY ATTENTION</div><div class="metric" style="font-size:18px" id="attentionMetric">Marketing & Distribution</div><div class="muted small">One primary area at a time</div></div>
+  </div>
+  <div class="section"><h3>Today's Operating Focus</h3><span class="pill">One day · One primary outcome</span></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Primary Outcome</h3>
+      <div class="field"><label>What must be true by the end of today?</label><textarea id="primaryOutcome" placeholder="e.g. Validate one paid offer with qualified prospects"></textarea></div>
+      <div class="field"><label>Evidence / output link or note</label><input id="outputEvidence" placeholder="What did you actually produce?"></div>
+      <button class="btn" style="margin-top:8px" onclick="saveDaily()">Save today's outcome</button>
+    </div>
+    <div class="card">
+      <h3>Founder Rules</h3>
+      <div class="check"><input type="checkbox" class="rule"><div>One Day = One Primary Outcome<small>Protect the most valuable result.</small></div></div>
+      <div class="check"><input type="checkbox" class="rule"><div>No New Project During Focus<small>Do not escape into new frameworks or tools.</small></div></div>
+      <div class="check"><input type="checkbox" class="rule"><div>No Metrics Without a Decision<small>Check numbers only when a decision follows.</small></div></div>
+      <div class="check"><input type="checkbox" class="rule"><div>Revenue Before Infrastructure<small>Validate demand before building systems.</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DAILY SCORECARD -->
+<section id="daily" class="page hidden">
+  <div class="grid g2">
+    <div class="card"><h3>Left Side · Performance Ratings</h3><div class="muted small">Rate each dimension from 0 to 10.</div><div class="scorelist" id="leftScores"></div></div>
+    <div class="card">
+      <h3>Right Side · Control & Day Result</h3>
+      <div class="scorelist" id="rightScores"></div>
+      <div class="field"><label>Total Day Score (manual override)</label><input id="totalScore" type="number" min="0" max="10" step=".1" value="7.5"></div>
+      <div class="field"><label>Day label</label><select id="dayStatus"><option>Good Day</option><option>Average Day</option><option>Recovery Day</option><option>Low-Quality Day</option></select></div>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><h3>Main Attention Area</h3><div class="field"><label>Primary attention area</label><input id="mainAttention" value="Marketing, Distribution"></div><div class="field"><label>Secondary focus</label><input id="secondaryAttention" placeholder="Optional"></div><div class="field"><label>What did you apply today?</label><textarea id="appliedToday"></textarea></div></div>
+    <div class="card"><h3>Day Review</h3><div class="field"><label>What created the most value?</label><textarea id="valueCreated"></textarea></div><div class="field"><label>What stole attention?</label><textarea id="attentionLeak"></textarea></div><div class="field"><label>One correction for tomorrow</label><textarea id="tomorrowCorrection"></textarea></div><button class="btn" style="margin-top:8px" onclick="saveDaily()">Save Daily Record</button></div>
+  </div>
+</section>
+
+<!-- HABITS -->
+<section id="habits" class="page hidden">
+  <div class="card">
+    <div class="hero"><div><h3>5 Main Habits · Hb-1 to Hb-5</h3><div class="muted small">Keep original labels; edit descriptions to match operating standards.</div></div><span class="pill">Daily application</span></div>
+    <div id="habitList" style="margin-top:12px"></div>
+    <button class="btn" style="margin-top:14px" onclick="saveHabits()">Save Habits</button>
+  </div>
+</section>
+
+<!-- BRAND DNA -->
+<section id="brands" class="page hidden">
+  <div class="tabs" id="brandTabs">
+    <button class="active" onclick="switchBrandTab('personal', this)">Personal Brand DNA</button>
+    <button onclick="switchBrandTab('axu', this)">AXU-II Brand DNA</button>
+    <button onclick="switchBrandTab('yglc', this)">YGLC Brand DNA</button>
+  </div>
+  <div id="brandFields" class="card"></div>
+</section>
+
+<!-- THINKING GYM -->
+<section id="thinking" class="page hidden">
+  <div class="grid g2">
+    <div class="card">
+      <h3>Daily Thinking Gym</h3>
+      <div class="field"><label>Choose a live problem</label><textarea id="thinkingProblem" placeholder="Describe real business or personal problem"></textarea></div>
+      <div class="field"><label>1 · First Principles — What is fundamentally true?</label><textarea id="firstPrinciples"></textarea></div>
+      <div class="field"><label>2 · Second-Order — What happens next?</label><textarea id="secondOrder"></textarea></div>
+      <div class="field"><label>3 · Revenue Thinking — Who pays for what result?</label><textarea id="revenueThinking"></textarea></div>
+      <div class="field"><label>4 · Systems Thinking — Inputs, process, bottleneck?</label><textarea id="systemsThinking"></textarea></div>
+      <button class="btn" style="margin-top:8px" onclick="saveThinking()">Save Thinking Drill</button>
+    </div>
+    <div class="card">
+      <h3>Chinese Business Models</h3>
+      <div class="kpi"><b>Alibaba</b><span class="muted">Ecosystem & Platform leverage</span></div>
+      <div class="kpi"><b>Xiaomi</b><span class="muted">Product Quality & Connected offerings</span></div>
+      <div class="kpi"><b>Shenzhen</b><span class="muted">Fast Iteration & Supply chain</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TASKS OPERATING SYSTEM (FLYWEEL, ROADMAP & KPIS) -->
+<section id="tasks" class="page hidden">
+  <div class="tabs" id="taskSubTabs">
+    <button class="active" onclick="switchTaskSubTab('actions', this)">Execution Roadmap</button>
+    <button onclick="switchTaskSubTab('flywheel', this)">Flywheel Major Tasks</button>
+    <button onclick="switchTaskSubTab('kpis', this)">Yang Community KPIs</button>
+  </div>
+
+  <!-- Execution Roadmap SubTab -->
+  <div id="taskActions" class="card">
+    <div class="hero">
+      <div>
+        <h3>လုပ်ရမည့်အလုပ်များ (Execution Priority)</h3>
+        <div class="muted small">Ecosystem & Infrastructure Implementation Roadmap</div>
+      </div>
+      <span class="pill" id="taskProgressPill">0% Done</span>
+    </div>
+    <div id="executionPriorityList" style="margin-top:16px;"></div>
+  </div>
+
+  <!-- Flywheel Major Tasks SubTab -->
+  <div id="taskFlywheel" class="card hidden">
+    <h3>Flywheel လည်ဖို့ Major Tasks</h3>
+    <div class="muted small" style="margin-bottom:12px;">Core tasks required to power the Yang Ecosystem Flywheel</div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Priority</th>
+            <th>Major Task</th>
+            <th>Business Impact</th>
+          </tr>
+        </thead>
+        <tbody id="flywheelTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- KPIs SubTab -->
+  <div id="taskKPIs" class="card hidden">
+    <h3>Yang Community Success Metrics</h3>
+    <div class="muted small" style="margin-bottom:12px;">Revenue တစ်ခုတည်းနဲ့ Yang Community အောင်မြင်မှုကို မတိုင်းတာသင့်ဘူး။</div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th>ဘာကိုတိုင်းတာမလဲ</th>
+          </tr>
+        </thead>
+        <tbody id="kpiTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLISTS -->
+<section id="checklists" class="page hidden">
+  <div class="tabs" id="checkTabs">
+    <button class="active" onclick="switchCheckTab('founder', this)">Founder Daily</button>
+    <button onclick="switchCheckTab('attention', this)">Attention & Focus</button>
+    <button onclick="switchCheckTab('decision', this)">Decision & Risk</button>
+    <button onclick="switchCheckTab('finance', this)">Finance</button>
+  </div>
+  <div class="card"><h3 id="checkTitle">Founder Daily</h3><div id="checkList"></div></div>
+</section>
+
+<!-- BUSINESS OS -->
+<section id="business" class="page hidden">
+  <div class="tabs" id="bizTabs">
+    <button class="active" onclick="switchBizTab('axu', this)">AXU-II</button>
+    <button onclick="switchBizTab('yglc', this)">YGLC</button>
+    <button onclick="switchBizTab('both', this)">Shared View</button>
+  </div>
+  <div id="businessContent"></div>
+</section>
+
+<!-- REVIEWS & DATA -->
+<section id="review" class="page hidden">
+  <div class="grid g2">
+    <div class="card">
+      <h3>Data & Backup</h3>
+      <p class="muted small">Export or import your complete founder database.</p>
+      <button class="btn" onclick="exportData()">Download JSON Backup</button>
+      <button class="btn secondary" onclick="exportDailyCSV()" style="margin-top:8px">Export Daily CSV</button>
+    </div>
+    <div class="card">
+      <h3>Cloud Status</h3>
+      <div class="notice">Connected to Supabase PostgreSQL Database safely.</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>Recent Daily Records</h3><div id="records"></div></div>
+</section>
+
+</main>
+</div>
+
+<script>
+// --- SUPABASE CONFIGURATION ---
+const SUPABASE_URL = "https://ojlythoptpmzxprjoplx.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qbHl0aG9wdHBtenhwcmpvcGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM4MDczMTQsImV4cCI6MjEwOTM4MzMxNH0.jy-oocObZuSLQR5gnkHuYmoNVkhraz5mSzNC7RhfOeg";
+
+let sbClient = null;
+try {
+  if (window.supabase) {
+    sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("Supabase connected successfully.");
+  }
+} catch(e) {
+  console.log("Supabase init error:", e);
+}
+
+const $=id=>document.getElementById(id);
+const today=new Date().toISOString().slice(0,10);
+$("today").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+
+const leftLabels=["Deep work","Sleep","Wake","Work time","Attention","Energy","Mood","Social Connection","Main output","Screen time","Focus"];
+const rightLabels=["Distraction"];
+const defaults={score:{ "Deep work":7.5,"Sleep":6,"Wake":6,"Work time":7,"Attention":7,"Energy":6.5,"Mood":7,"Social Connection":5,"Main output":7.5,"Screen time":7.5,"Focus":7,"Distraction":7},total:7.5,status:"Good Day",attention:"Marketing, Distribution",habits:[
+["Hb-1 · Screen → Main Output → Apply","Use screen time deliberately; convert input into one applied output."],
+["Hb-2 · Remind","Use a reminder to return to the highest-value priority."],
+["Hb-3 · Attention Area Work","Do focused work in the chosen attention area."],
+["Hb-4 · 200 Quality Days","Produce 200 quality days within 365 days."],
+["Hb-5 · Attention Area Work","Protect another deliberate block for the main attention area."]
+]};
+
+let db=JSON.parse(localStorage.getItem("founderCC")||"{}");
+db.days ||= {};db.habits ||= defaults.habits;db.quality ||= [];
+db.taskState ||= {};
+db.brands ||= {
+  personal:{"DNA":"Economic Architect · Business Founder","Culture":"Evidence before explanation","Enemy":"Ego, distraction, vanity metrics"},
+  axu:{"DNA":"Premium strategic AI Superstore","Culture":"Curated, useful, trusted","Enemy":"Random tool lists, hype"},
+  yglc:{"DNA":"Premium Burmese guitar learning brand","Culture":"Deep learning, quality instruction","Enemy":"Shallow lessons, passive consumption"}
+};
+
+let currentBrand="personal", currentCheck="founder", currentBiz="axu";
+
+// Core Task & KPI Datasets
+const executionTasks = [
+  { rank: 1, name: "Existing Customer Data စုစည်းခြင်း", priority: "Critical" },
+  { rank: 2, name: "Unified Customer ID တည်ဆောက်ခြင်း", priority: "Critical" },
+  { rank: 3, name: "Shared Customer Database တည်ဆောက်ခြင်း", priority: "Critical" },
+  { rank: 4, name: "Purchase History Tracking", priority: "Critical" },
+  { rank: 5, name: "Customer Experience SOP", priority: "Critical" },
+  { rank: 6, name: "Customer Follow-up System", priority: "High" },
+  { rank: 7, name: "Customer Segmentation", priority: "High" },
+  { rank: 8, name: "Membership Eligibility Rules", priority: "High" },
+  { rank: 9, name: "Premium Value Library", priority: "Medium" },
+  { rank: 10, name: "Advanced Automation", priority: "Later" }
+];
+
+const flywheelTasks = [
+  { priority: 1, task: "Shared Customer Database", impact: "Customer Asset" },
+  { priority: 2, task: "Cross-Brand Customer ID", impact: "Ecosystem Integration" },
+  { priority: 3, task: "Customer Experience SOP", impact: "Trust" },
+  { priority: 4, task: "Follow-up Automation", impact: "Retention" },
+  { priority: 5, task: "Purchase Tracking", impact: "Membership Eligibility" },
+  { priority: 6, task: "Personalized Recommendation", impact: "Repeat Revenue" },
+  { priority: 7, task: "Premium Membership", impact: "Loyalty" },
+  { priority: 8, task: "Referral System", impact: "Organic Growth" },
+  { priority: 9, task: "Customer Intelligence Analysis", impact: "Competitive Advantage" },
+  { priority: 10, task: "Ecosystem Performance Audit", impact: "Continuous Improvement" }
+];
+
+const communityKPIs = [
+  { kpi: "Total Unique Customers", desc: "Ecosystem တစ်ခုလုံးရဲ့ Customer အရေအတွက်" },
+  { kpi: "Customer Data Completeness", desc: "Profile Data ပြည့်စုံမှု" },
+  { kpi: "Cross-Brand Customers", desc: "Brand နှစ်ခုနှင့်အထက် ဝယ်ယူသူ" },
+  { kpi: "Repeat Purchase Rate", desc: "ထပ်မံဝယ်ယူသူ ရာခိုင်နှုန်း" },
+  { kpi: "Customer Retention", desc: "Customer ထိန်းသိမ်းနိုင်မှု" },
+  { kpi: "Customer Lifetime Value", desc: "Customer တစ်ဦး၏ ရေရှည်တန်ဖိုး" },
+  { kpi: "Customer Satisfaction", desc: "Customer Experience အရည်အသွေး" },
+  { kpi: "Premium Conversion", desc: "Eligibility ရရှိသူမှ Member ဖြစ်လာမှု" },
+  { kpi: "Referral Rate", desc: "Customer မှတစ်ဆင့် ဝင်လာသူ" },
+  { kpi: "Revenue per Customer", desc: "Customer တစ်ဦးချင်းမှ ရရှိသော Revenue" }
+];
+
+function switchPage(pageId, btn) {
+  document.querySelectorAll("#nav button").forEach(x=>x.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));
+  let target=$(pageId);
+  if(target) target.classList.remove("hidden");
+  if(btn) $("pageTitle").textContent=btn.textContent.replace(/^[◫◷✓◇⌘☷↗▤]\s*/,"");
+}
+
+function scoreInputs(){
+  $("leftScores").innerHTML=leftLabels.map(k=>`<div class="score"><label>${k}</label><input type="number" min="0" max="10" step=".5" data-score="${k}" value="${defaults.score[k]}"></div>`).join("");
+  $("rightScores").innerHTML=rightLabels.map(k=>`<div class="score"><label>${k}</label><input type="number" min="0" max="10" step=".5" data-score="${k}" value="${defaults.score[k]}"></div>`).join("");
+}
+
+function renderHabits(){
+  $("habitList").innerHTML=db.habits.map((h,i)=>`<div class="check"><input type="checkbox" id="hb${i}" ${((db.habitDone||{})[i]?"checked":"")}><div style="flex:1"><b>${h[0]}</b><div class="field" style="margin:4px 0"><input id="hbt${i}" value="${h[1]}"></div></div></div>`).join("");
+}
+
+function saveHabits(){
+  db.habits=db.habits.map((h,i)=>[h[0],$("hbt"+i).value]);
+  db.habitDone={};
+  db.habits.forEach((_,i)=>db.habitDone[i]=$("hb"+i).checked);
+  persist();
+  alert("Habits saved successfully!");
+}
+
+function switchBrandTab(bKey, btn) {
+  document.querySelectorAll("#brandTabs button").forEach(x=>x.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  currentBrand = bKey;
+  renderBrand();
+}
+
+function renderBrand(){
+  let obj=db.brands[currentBrand];
+  $("brandFields").innerHTML=`<h3>${currentBrand.toUpperCase()} Brand DNA</h3><div class="dna" style="margin-top:10px">`+Object.entries(obj).map(([k,v])=>`<div class="field"><label>${k}</label><textarea data-dna="${k}">${v}</textarea></div>`).join("")+`</div><button class="btn" style="margin-top:12px" onclick="saveBrand()">Save Brand DNA</button>`;
+}
+
+function saveBrand(){
+  document.querySelectorAll("[data-dna]").forEach(x=>db.brands[currentBrand][x.dataset.dna]=x.value);
+  persist();
+  alert("Brand DNA saved!");
+}
+
+// Tasks Rendering & Switching Logic
+function switchTaskSubTab(tabKey, btn) {
+  document.querySelectorAll("#taskSubTabs button").forEach(x=>x.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  $("taskActions").classList.add("hidden");
+  $("taskFlywheel").classList.add("hidden");
+  $("taskKPIs").classList.add("hidden");
+  
+  if(tabKey === 'actions') $("taskActions").classList.remove("hidden");
+  if(tabKey === 'flywheel') $("taskFlywheel").classList.remove("hidden");
+  if(tabKey === 'kpis') $("taskKPIs").classList.remove("hidden");
+}
+
+function renderTaskSystem() {
+  // Render Execution Priorities
+  let completedCount = 0;
+  $("executionPriorityList").innerHTML = executionTasks.map(t => {
+    let isChecked = db.taskState[t.rank] ? "checked" : "";
+    if(db.taskState[t.rank]) completedCount++;
+    let badgeClass = "badge-" + t.priority.toLowerCase();
+    return `
+      <div class="check">
+        <input type="checkbox" onchange="toggleTaskState(${t.rank}, this.checked)" ${isChecked}>
+        <div style="flex:1">
+          <b>#${t.rank} ${t.name}</b>
+          <div style="margin-top:4px"><span class="${badgeClass}">${t.priority}</span></div>
+        </div>
+      </div>
+    `;
+  }).join("");
+  
+  let pct = Math.round((completedCount / executionTasks.length) * 100);
+  $("taskProgressPill").textContent = `${pct}% Done (${completedCount}/${executionTasks.length})`;
+
+  // Render Flywheel Table
+  $("flywheelTableBody").innerHTML = flywheelTasks.map(f => `
+    <tr>
+      <td><b>#${f.priority}</b></td>
+      <td>${f.task}</td>
+      <td><span class="tag">${f.impact}</span></td>
+    </tr>
+  `).join("");
+
+  // Render KPIs Table
+  $("kpiTableBody").innerHTML = communityKPIs.map(k => `
+    <tr>
+      <td><b>${k.kpi}</b></td>
+      <td>${k.desc}</td>
+    </tr>
+  `).join("");
+}
+
+function toggleTaskState(rank, isChecked) {
+  db.taskState[rank] = isChecked;
+  persist();
+  renderTaskSystem();
+}
+
+const checklistData={
+  founder:["Identity activation: act as an Economic Architect.","Choose one Economic Outcome for today.","Complete one 60–90 minute high-value output block."],
+  attention:["Priority Lock — define one primary task.","Distraction Removal — remove visible distractions."],
+  decision:["Condition — what is the actual situation?","Objective — what outcome are we optimizing?"],
+  finance:["Is this expense necessary?","Does it create customer value or asset?"]
+};
+
+function switchCheckTab(cKey, btn){
+  document.querySelectorAll("#checkTabs button").forEach(x=>x.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  currentCheck=cKey;
+  renderChecks();
+}
+
+function renderChecks(){
+  $("checkTitle").textContent = currentCheck.toUpperCase() + " Checklist";
+  $("checkList").innerHTML = checklistData[currentCheck].map(s=>`<div class="check"><input type="checkbox"><div>${s}</div></div>`).join("");
+}
+
+function switchBizTab(bizKey, btn){
+  document.querySelectorAll("#bizTabs button").forEach(x=>x.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  currentBiz=bizKey;
+  renderBusiness();
+}
+
+function renderBusiness(){
+  let names = currentBiz==="both"?["AXU-II","YGLC"]:[currentBiz.toUpperCase()];
+  $("businessContent").innerHTML = names.map(n=>`<div class="card" style="margin-bottom:12px"><h3>${n} Strategy</h3><p class="muted">Operating priority & demand validation active.</p></div>`).join("");
+}
+
+async function syncToSupabase(tableName, payload) {
+  if(!sbClient) return;
+  try {
+    await sbClient.from(tableName).insert([payload]);
+  } catch(err) { console.error("Cloud sync error:", err); }
+}
+
+function saveDaily(){
+  let scores={};
+  document.querySelectorAll("[data-score]").forEach(x=>scores[x.dataset.score]=parseFloat(x.value)||0);
+  let rec = { 
+    total:parseFloat($("totalScore")?.value||7.5), 
+    status:$("dayStatus")?.value||"Good Day",
+    attention:$("mainAttention")?.value||"",
+    outcome:$("primaryOutcome")?.value||"", 
+    scores 
+  };
+  
+  db.days[today] = rec;
+  persist();
+  syncToSupabase("daily_logs", { date: today, data: rec });
+  alert("Daily record saved & synced successfully!");
+}
+
+function saveThinking(){
+  let drill = { problem: $("thinkingProblem").value, firstPrinciples: $("firstPrinciples").value };
+  db.thinking ||= [];
+  db.thinking.push([today, drill.problem]);
+  persist();
+  syncToSupabase("thinking_drills", { date: today, data: drill });
+  alert("Thinking Drill saved successfully!");
+}
+
+function persist(){
+  localStorage.setItem("founderCC", JSON.stringify(db));
+  refresh();
+}
+
+function refresh(){
+  let d=db.days[today]||{};
+  let sc=d.total||7.5;
+  if($("dashScore")) $("dashScore").innerHTML=`${sc}<small> / 10</small>`;
+  if($("scoreBar")) $("scoreBar").style.width=`${sc*10}%`;
+  if($("primaryOutcome")) $("primaryOutcome").value=d.outcome||"";
+  
+  let recs=Object.entries(db.days||{}).sort().reverse().slice(0,5);
+  if($("records")) $("records").innerHTML=recs.length?recs.map(([date,item])=>`<div class="kpi"><b>${date}</b><span>Score: ${item.total} (${item.status})</span></div>`).join(""):`<div class="muted">No daily logs yet.</div>`;
+}
+
+function exportData(){
+  let blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
+  let a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`Founder_Command_Center_Backup_${today}.json`;
+  a.click();
+}
+
+function exportDailyCSV(){
+  let rows=[["Date","Score","Status","Attention","Outcome"]];
+  Object.entries(db.days||{}).forEach(([date,d])=>{
+    rows.push([date,d.total,d.status,`"${d.attention||''}"`,`"${d.outcome||''}"`]);
+  });
+  let csv=rows.map(e=>e.join(",")).join("\n");
+  let blob=new Blob([csv],{type:"text/csv"});
+  let a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`Daily_Log_${today}.csv`;
+  a.click();
+}
+
+// Init all sections
+scoreInputs();
+renderHabits();
+renderBrand();
+renderTaskSystem();
+renderChecks();
+renderBusiness();
+refresh();
+</script>
+</body>
+</html>

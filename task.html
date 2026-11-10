@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="my" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flywheel & Ecosystem Command - Founder Operating System</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#09090b',
+                        card: '#121215',
+                        border: '#27272a',
+                        accent: '#eab308', // Gold accent seen in UI
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Padauk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Clean Typography & Burmese support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+            font-family: 'Inter', 'Padauk', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+        .tab-active {
+            border-bottom: 2px solid #eab308;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .glass-card {
+            background-color: #121215;
+            border: 1px solid #27272a;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row antialiased">
+
+    <!-- Sidebar Navigation (Matching Founder Command Center UI) -->
+    <aside class="w-full md:w-64 bg-[#09090b] border-r border-[#27272a] p-4 flex flex-col justify-between shrink-0">
+        <div>
+            <!-- Header Brand -->
+            <div class="mb-8 px-2">
+                <div class="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-1">Economic Architect</div>
+                <h1 class="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                    Founder Command Center
+                </h1>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="space-y-1">
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                    <i class="fa-solid fa-chart-pie w-4"></i> Overview
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                    <i class="fa-solid fa-clock-rotate-left w-4"></i> Daily Scorecard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                    <i class="fa-solid fa-check-double w-4"></i> 5 Habits
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                    <i class="fa-solid fa-gem w-4"></i> Brand DNA
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                    <i class="fa-solid fa-brain w-4"></i> Thinking Gym
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-amber-400 bg-zinc-900/80 font-medium rounded-md border border-amber-500/20 shadow-sm">
+                    <i class="fa-solid fa-list-check w-4"></i> Ecosystem Roadmap
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-zinc-400 hover:text-white rounded-md hover:bg-zinc-900 transition">
+                    <i class="fa-solid fa-book w-4"></i> SOP Bible (Great State)
+                </a>
+            </nav>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-[#27272a] text-xs text-zinc-500 px-2">
+            Monochrome Edition • Local Sync
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-4 md:p-8 overflow-y-auto max-w-7xl mx-auto w-full">
+        
+        <!-- Header Banner -->
+        <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <div>
+                <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Personal Operating System</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mt-1">Flywheel & Ecosystem Command</h2>
+                <p class="text-sm text-zinc-400 mt-1 bg-amber-500/10 border-l-2 border-amber-500 px-3 py-1.5 rounded-r mt-2">
+                    💡 "Revenue တစ်ခုတည်းနဲ့ Yang Community အောင်မြင်မှုကို မတိုင်းတာသင့်ဘူး။"
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <button onclick="exportProgress()" class="text-xs px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 rounded-md transition flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i> Export Data
+                </button>
+                <button onclick="resetTasks()" class="text-xs px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-rose-400 border border-zinc-800 rounded-md transition flex items-center gap-2">
+                    <i class="fa-solid fa-rotate"></i> Reset Progress
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Overview Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="glass-card p-4 rounded-lg">
+                <div class="text-xs text-zinc-400 mb-1">Total Tasks</div>
+                <div class="text-2xl font-bold text-white">20 Tasks</div>
+                <div class="text-xs text-zinc-500 mt-1">Major Tasks & Action Items</div>
+            </div>
+            <div class="glass-card p-4 rounded-lg">
+                <div class="text-xs text-zinc-400 mb-1">Critical Priorities</div>
+                <div class="text-2xl font-bold text-rose-400">5 Immediate</div>
+                <div class="text-xs text-zinc-500 mt-1">Foundational Execution</div>
+            </div>
+            <div class="glass-card p-4 rounded-lg">
+                <div class="text-xs text-zinc-400 mb-1">KPI Metrics</div>
+                <div class="text-2xl font-bold text-amber-400">10 Trackers</div>
+                <div class="text-xs text-zinc-500 mt-1">Community Growth Vectors</div>
+            </div>
+            <div class="glass-card p-4 rounded-lg">
+                <div class="text-xs text-zinc-400 mb-1">Action Progress</div>
+                <div class="flex items-center justify-between mt-1">
+                    <span class="text-2xl font-bold text-emerald-400" id="progressPct">0%</span>
+                    <span class="text-xs text-zinc-400" id="progressRatio">0/10 Done</span>
+                </div>
+                <div class="w-full bg-zinc-800 h-1.5 rounded-full mt-2 overflow-hidden">
+                    <div id="progressBar" class="bg-emerald-500 h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab & Filter Bar -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-zinc-800 mb-6 pb-2">
+            <!-- Navigation Tabs -->
+            <div class="flex gap-6 overflow-x-auto w-full sm:w-auto">
+                <button onclick="switchTab('action')" id="tab-action" class="pb-3 text-sm font-medium text-zinc-400 hover:text-white transition whitespace-nowrap tab-active">
+                    <i class="fa-solid fa-bolt mr-1.5 text-xs"></i> Action Priorities (လုပ်ရမယ့်အလုပ်)
+                </button>
+                <button onclick="switchTab('flywheel')" id="tab-flywheel" class="pb-3 text-sm font-medium text-zinc-400 hover:text-white transition whitespace-nowrap">
+                    <i class="fa-solid fa-arrows-spin mr-1.5 text-xs"></i> Flywheel Major Tasks
+                </button>
+                <button onclick="switchTab('kpi')" id="tab-kpi" class="pb-3 text-sm font-medium text-zinc-400 hover:text-white transition whitespace-nowrap">
+                    <i class="fa-solid fa-chart-line mr-1.5 text-xs"></i> KPI Metrics (ဘာကိုတိုင်းတာမလဲ)
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="relative w-full sm:w-64">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-zinc-500"></i>
+                <input type="text" id="searchInput" oninput="filterTables()" placeholder="Search tasks or metrics..." class="w-full bg-zinc-900 border border-zinc-800 rounded-md pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-amber-500 transition">
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 1: ACTION PRIORITIES (Ranked Priorities) -->
+        <section id="content-action" class="space-y-4">
+            <div class="glass-card rounded-lg overflow-hidden">
+                <div class="p-4 border-b border-zinc-800 flex justify-between items-center bg-zinc-900/50">
+                    <div>
+                        <h3 class="text-sm font-bold text-white">Execution Priority Queue (လုပ်ရမယ့်အလုပ်)</h3>
+                        <p class="text-xs text-zinc-400">Sequential order for ecosystem rollout</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <select id="priorityFilter" onchange="filterTables()" class="bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 rounded px-2 py-1 focus:outline-none">
+                            <option value="ALL">All Priorities</option>
+                            <option value="Critical">Critical Only</option>
+                            <option value="High">High Only</option>
+                            <option value="Medium">Medium Only</option>
+                            <option value="Later">Later Only</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-zinc-300">
+                        <thead class="text-xs uppercase bg-zinc-900/80 text-zinc-400 border-b border-zinc-800">
+                            <tr>
+                                <th class="py-3 px-4 w-12 text-center">Done</th>
+                                <th class="py-3 px-4 w-16 text-center">Rank</th>
+                                <th class="py-3 px-4">လုပ်ရမယ့်အလုပ် (Action Task)</th>
+                                <th class="py-3 px-4 w-32">Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody id="actionTableBody" class="divide-y divide-zinc-800/60">
+                            <!-- JS Populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB CONTENT 2: FLYWHEEL MAJOR TASKS -->
+        <section id="content-flywheel" class="space-y-4 hidden">
+            <div class="glass-card rounded-lg overflow-hidden">
+                <div class="p-4 border-b border-zinc-800 bg-zinc-900/50">
+                    <h3 class="text-sm font-bold text-white">Flywheel လည်ဖို့ Major Tasks</h3>
+                    <p class="text-xs text-zinc-400">Core structural components driving flywheel velocity</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-zinc-300">
+                        <thead class="text-xs uppercase bg-zinc-900/80 text-zinc-400 border-b border-zinc-800">
+                            <tr>
+                                <th class="py-3 px-4 w-16 text-center">Priority</th>
+                                <th class="py-3 px-4">Major Task</th>
+                                <th class="py-3 px-4">Business Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody id="flywheelTableBody" class="divide-y divide-zinc-800/60">
+                            <!-- JS Populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB CONTENT 3: KPI METRICS -->
+        <section id="content-kpi" class="space-y-4 hidden">
+            <div class="glass-card rounded-lg overflow-hidden">
+                <div class="p-4 border-b border-zinc-800 bg-zinc-900/50">
+                    <h3 class="text-sm font-bold text-white">KPI Measurement Framework</h3>
+                    <p class="text-xs text-zinc-400">Metrics to measure Yang Community success holistic growth</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-zinc-300">
+                        <thead class="text-xs uppercase bg-zinc-900/80 text-zinc-400 border-b border-zinc-800">
+                            <tr>
+                                <th class="py-3 px-4 w-1/3">KPI Name</th>
+                                <th class="py-3 px-4">ဘာကိုတိုင်းတာမလဲ (Metric Definition)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="kpiTableBody" class="divide-y divide-zinc-800/60">
+                            <!-- JS Populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript Data & Interactivity -->
+    <script>
+        // Data Sources from Images
+        const flywheelTasks = [
+            { id: 1, task: "Shared Customer Database", impact: "Customer Asset" },
+            { id: 2, task: "Cross-Brand Customer ID", impact: "Ecosystem Integration" },
+            { id: 3, task: "Customer Experience SOP", impact: "Trust" },
+            { id: 4, task: "Follow-up Automation", impact: "Retention" },
+            { id: 5, task: "Purchase Tracking", impact: "Membership Eligibility" },
+            { id: 6, task: "Personalized Recommendation", impact: "Repeat Revenue" },
+            { id: 7, task: "Premium Membership", impact: "Loyalty" },
+            { id: 8, task: "Referral System", impact: "Organic Growth" },
+            { id: 9, task: "Customer Intelligence Analysis", impact: "Competitive Advantage" },
+            { id: 10, task: "Ecosystem Performance Audit", impact: "Continuous Improvement" }
+        ];
+
+        const kpis = [
+            { kpi: "Total Unique Customers", desc: "Ecosystem တစ်ခုလုံးရဲ့ Customer အရေအတွက်" },
+            { kpi: "Customer Data Completeness", desc: "Profile Data ပြည့်စုံမှု" },
+            { kpi: "Cross-Brand Customers", desc: "Brand နှစ်ခုနှင့်အထက် ဝယ်ယူသူ" },
+            { kpi: "Repeat Purchase Rate", desc: "ထပ်မံဝယ်ယူသူ ရာခိုင်နှုန်း" },
+            { kpi: "Customer Retention", desc: "Customer ထိန်းသိမ်းနိုင်မှု" },
+            { kpi: "Customer Lifetime Value", desc: "Customer တစ်ဦး၏ ရေရှည်တန်ဖိုး" },
+            { kpi: "Customer Satisfaction", desc: "Customer Experience အရည်အသွေး" },
+            { kpi: "Premium Conversion", desc: "Eligibility ရရှိသူမှ Member ဖြစ်လာမှု" },
+            { kpi: "Referral Rate", desc: "Customer မှတစ်ဆင့် ဝင်လာသူ" },
+            { kpi: "Revenue per Customer", desc: "Customer တစ်ဦးချင်းမှ ရရှိသော Revenue" }
+        ];
+
+        const actionPriorities = [
+            { rank: 1, action: "Existing Customer Data စုစည်းခြင်း", priority: "Critical" },
+            { rank: 2, action: "Unified Customer ID တည်ဆောက်ခြင်း", priority: "Critical" },
+            { rank: 3, action: "Shared Customer Database တည်ဆောက်ခြင်း", priority: "Critical" },
+            { rank: 4, action: "Purchase History Tracking", priority: "Critical" },
+            { rank: 5, action: "Customer Experience SOP", priority: "Critical" },
+            { rank: 6, action: "Customer Follow-up System", priority: "High" },
+            { rank: 7, action: "Customer Segmentation", priority: "High" },
+            { rank: 8, action: "Membership Eligibility Rules", priority: "High" },
+            { rank: 9, action: "Premium Value Library", priority: "Medium" },
+            { rank: 10, action: "Advanced Automation", priority: "Later" }
+        ];
+
+        // Saved Checkbox State
+        let completedTasks = JSON.parse(localStorage.getItem('founder_tasks_completed')) || [];
+
+        // Priority Badge Helper
+        function getPriorityBadge(priority) {
+            switch(priority) {
+                case 'Critical':
+                    return `<span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">Critical</span>`;
+                case 'High':
+                    return `<span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">High</span>`;
+                case 'Medium':
+                    return `<span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">Medium</span>`;
+                case 'Later':
+                    return `<span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-zinc-800 text-zinc-400 border border-zinc-700">Later</span>`;
+                default:
+                    return `<span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-zinc-800 text-zinc-400">${priority}</span>`;
+            }
+        }
+
+        // Render Tables
+        function renderActionTable() {
+            const tbody = document.getElementById('actionTableBody');
+            tbody.innerHTML = '';
+            
+            actionPriorities.forEach(item => {
+                const isChecked = completedTasks.includes(item.rank);
+                const tr = document.createElement('tr');
+                tr.className = `hover:bg-zinc-900/40 transition ${isChecked ? 'opacity-50 line-through bg-zinc-900/20' : ''}`;
+                tr.setAttribute('data-priority', item.priority);
+                tr.setAttribute('data-text', item.action.toLowerCase());
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4 text-center">
+                        <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleTask(${item.rank})" class="w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-amber-500 focus:ring-amber-500/20 focus:ring-offset-0 cursor-pointer">
+                    </td>
+                    <td class="py-3 px-4 text-center font-mono text-zinc-500">${item.rank}</td>
+                    <td class="py-3 px-4 font-medium ${isChecked ? 'text-zinc-500' : 'text-zinc-200'}">${item.action}</td>
+                    <td class="py-3 px-4">${getPriorityBadge(item.priority)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+            updateProgress();
+        }
+
+        function renderFlywheelTable() {
+            const tbody = document.getElementById('flywheelTableBody');
+            tbody.innerHTML = '';
+
+            flywheelTasks.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-zinc-900/40 transition';
+                tr.setAttribute('data-text', (item.task + ' ' + item.impact).toLowerCase());
+                tr.innerHTML = `
+                    <td class="py-3 px-4 text-center font-mono text-amber-400 font-semibold">${item.id}</td>
+                    <td class="py-3 px-4 font-medium text-zinc-200">${item.task}</td>
+                    <td class="py-3 px-4 text-zinc-400">${item.impact}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderKPITable() {
+            const tbody = document.getElementById('kpiTableBody');
+            tbody.innerHTML = '';
+
+            kpis.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-zinc-900/40 transition';
+                tr.setAttribute('data-text', (item.kpi + ' ' + item.desc).toLowerCase());
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-semibold text-amber-400/90">${item.kpi}</td>
+                    <td class="py-3 px-4 text-zinc-300 font-padauk">${item.desc}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Toggle Local Task Completion
+        function toggleTask(rank) {
+            if (completedTasks.includes(rank)) {
+                completedTasks = completedTasks.filter(r => r !== rank);
+            } else {
+                completedTasks.push(rank);
+            }
+            localStorage.setItem('founder_tasks_completed', JSON.stringify(completedTasks));
+            renderActionTable();
+        }
+
+        function resetTasks() {
+            if (confirm("Reset all checkmark progress?")) {
+                completedTasks = [];
+                localStorage.removeItem('founder_tasks_completed');
+                renderActionTable();
+            }
+        }
+
+        function updateProgress() {
+            const total = actionPriorities.length;
+            const done = completedTasks.length;
+            const pct = Math.round((done / total) * 100);
+            
+            document.getElementById('progressPct').innerText = `${pct}%`;
+            document.getElementById('progressRatio').innerText = `${done}/${total} Done`;
+            document.getElementById('progressBar').style.width = `${pct}%`;
+        }
+
+        // Tab Switching
+        function switchTab(tabKey) {
+            ['action', 'flywheel', 'kpi'].forEach(key => {
+                const content = document.getElementById(`content-${key}`);
+                const tabBtn = document.getElementById(`tab-${key}`);
+                if (key === tabKey) {
+                    content.classList.remove('hidden');
+                    tabBtn.classList.add('tab-active');
+                } else {
+                    content.classList.add('hidden');
+                    tabBtn.classList.remove('tab-active');
+                }
+            });
+        }
+
+        // Universal Table Filtering
+        function filterTables() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const priorityVal = document.getElementById('priorityFilter').value;
+
+            // Filter Action Table
+            const actionRows = document.querySelectorAll('#actionTableBody tr');
+            actionRows.forEach(row => {
+                const textMatch = row.getAttribute('data-text').includes(query);
+                const priorityMatch = priorityVal === 'ALL' || row.getAttribute('data-priority') === priorityVal;
+                row.style.display = (textMatch && priorityMatch) ? '' : 'none';
+            });
+
+            // Filter Flywheel Table
+            const flywheelRows = document.querySelectorAll('#flywheelTableBody tr');
+            flywheelRows.forEach(row => {
+                const textMatch = row.getAttribute('data-text').includes(query);
+                row.style.display = textMatch ? '' : 'none';
+            });
+
+            // Filter KPI Table
+            const kpiRows = document.querySelectorAll('#kpiTableBody tr');
+            kpiRows.forEach(row => {
+                const textMatch = row.getAttribute('data-text').includes(query);
+                row.style.display = textMatch ? '' : 'none';
+            });
+        }
+
+        // Export Backup
+        function exportProgress() {
+            const exportData = {
+                completedTasks: completedTasks,
+                timestamp: new Date().toISOString()
+            };
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `founder_command_tasks_${new Date().toISOString().slice(0,10)}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        // Init Page
+        window.onload = function() {
+            renderActionTable();
+            renderFlywheelTable();
+            renderKPITable();
+        }
+    </script>
+</body>
+</html>
