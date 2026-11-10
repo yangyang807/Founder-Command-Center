@@ -5,49 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Great State · Customer Experience & Service Excellence SOP Bible</title>
 <style>
-/* Luxury Black & Gold Theme (Mobile First Optimized) */
+/* Luxury Clean Theme (Warm Slate, Quartz Obsidian & Champagne Gold) */
 :root{
-  --bg:#050505;
-  --panel:#0e0e10;
-  --panel2:#16161a;
-  --line:#24242a;
-  --text:#f8f9fa;
-  --muted:#8a8f99;
-  --gold:#d4af37;
-  --gold-light:#f3e5ab;
-  --gold-glow:rgba(212, 175, 55, 0.15);
+  --bg:#0f1117;
+  --panel:#181b24;
+  --panel2:#212532;
+  --panel-glass:rgba(24, 27, 36, 0.85);
+  --line:#2e3444;
+  --text:#f1f3f7;
+  --muted:#949ba9;
+  --gold:#e5c158;
+  --gold-light:#f7e7b4;
+  --gold-glow:rgba(229, 193, 88, 0.12);
   --accent:#ffffff;
-  --red:#ff453a;
-  --radius:12px;
+  --red:#ff5252;
+  --radius:14px;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;letter-spacing:-0.01em;padding-bottom:30px}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 Inter,-apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:-0.01em;padding-bottom:40px}
 
-header{background:linear-gradient(180deg,#121215,#050505);border-bottom:1px solid var(--line);padding:40px 20px 25px;text-align:center;position:relative}
+header{background:linear-gradient(180deg,#1b1f2b,#0f1117);border-bottom:1px solid var(--line);padding:42px 20px 28px;text-align:center;position:relative}
 header .tag{color:var(--gold);font-size:11px;letter-spacing:.25em;font-weight:800;text-transform:uppercase}
-header h1{font-size:24px;margin:12px 0 8px;letter-spacing:-.03em;color:#ffffff;font-weight:800;line-height:1.3}
-header p{color:var(--muted);font-size:12px;max-width:800px;margin:auto;line-height:1.5}
+header h1{font-size:25px;margin:12px 0 8px;letter-spacing:-.03em;color:#ffffff;font-weight:800;line-height:1.3}
+header p{color:var(--muted);font-size:12.5px;max-width:800px;margin:auto;line-height:1.6}
 
 .back-btn-container{position:absolute;left:16px;top:16px}
 
-.container{max-width:1300px;margin:auto;padding:20px 16px}
+.container{max-width:1300px;margin:auto;padding:24px 16px}
 
-.controls-bar{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:20px;background:var(--panel);padding:14px;border-radius:var(--radius);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.controls-bar{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:24px;background:var(--panel);padding:14px;border-radius:var(--radius);border:1px solid var(--line);box-shadow:0 8px 25px rgba(0,0,0,0.3)}
 .search-box{width:100%}
-.search-box input{background:#000000;border:1px solid var(--line);color:var(--text);padding:12px 16px;border-radius:8px;width:100%;outline:none;font-size:13px;transition:border-color .2s;-webkit-appearance:none}
-.search-box input:focus{border-color:var(--gold)}
+.search-box input{background:var(--bg);border:1px solid var(--line);color:var(--text);padding:12px 16px;border-radius:10px;width:100%;outline:none;font-size:13px;transition:all .2s ease;-webkit-appearance:none}
+.search-box input:focus{border-color:var(--gold);box-shadow:0 0 12px var(--gold-glow)}
 
 .nav-tabs{display:flex;gap:8px;overflow-x:auto;width:100%;padding-bottom:4px;-webkit-overflow-scrolling:touch}
-.nav-tabs button{background:#000000;border:1px solid var(--line);color:var(--muted);padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;font-size:12px;white-space:nowrap;transition:all .2s ease;flex-shrink:0}
-.nav-tabs button.active,.nav-tabs button:hover{background:var(--panel2);color:var(--gold);border-color:var(--gold);box-shadow:0 0 12px var(--gold-glow)}
+.nav-tabs button{background:var(--bg);border:1px solid var(--line);color:var(--muted);padding:10px 16px;border-radius:10px;cursor:pointer;font-weight:600;font-size:12px;white-space:nowrap;transition:all .2s ease;flex-shrink:0}
+.nav-tabs button.active,.nav-tabs button:hover{background:var(--panel2);color:var(--gold);border-color:var(--gold);box-shadow:0 0 14px var(--gold-glow)}
 
 .section{display:none}
 .section.active{display:block}
 
-.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:0 8px 32px rgba(0,0,0,0.6)}
-.card h2{color:var(--gold);font-size:18px;margin-top:0;border-bottom:1px solid var(--line);padding-bottom:10px;display:flex;justify-content:space-between;align-items:center;letter-spacing:-.02em}
-.card h3{color:var(--gold-light);font-size:15px;margin:20px 0 10px;border-left:3px solid var(--gold);padding-left:10px}
-.card h4{color:#ffffff;font-size:13.5px;margin:14px 0 6px;font-weight:700}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:20px;box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+.card h2{color:var(--gold);font-size:19px;margin-top:0;border-bottom:1px solid var(--line);padding-bottom:12px;display:flex;justify-content:space-between;align-items:center;letter-spacing:-.02em}
+.card h3{color:var(--gold-light);font-size:15px;margin:22px 0 12px;border-left:3px solid var(--gold);padding-left:12px}
+.card h4{color:#ffffff;font-size:14px;margin:16px 0 6px;font-weight:700}
 
 ul,ol{margin:10px 0;padding-left:20px;color:var(--muted)}
 li{margin-bottom:8px}li strong{color:#ffffff}
@@ -59,43 +60,43 @@ li{margin-bottom:8px}li strong{color:#ffffff}
   .search-box input{width:280px}
   header h1{font-size:32px}
   header p{font-size:13px}
-  .card{padding:26px}
-  .card h2{font-size:21px}
+  .card{padding:28px}
+  .card h2{font-size:22px}
 }
 
-.highlight{background:var(--gold-glow);border-left:3px solid var(--gold);padding:14px 16px;margin:16px 0;border-radius:0 var(--radius) var(--radius) 0;color:var(--text);border-top:1px solid rgba(212,175,55,0.1);border-right:1px solid rgba(212,175,55,0.1);border-bottom:1px solid rgba(212,175,55,0.1);font-size:13px}
+.highlight{background:var(--gold-glow);border-left:3px solid var(--gold);padding:16px 18px;margin:18px 0;border-radius:0 var(--radius) var(--radius) 0;color:var(--text);border-top:1px solid rgba(229,193,88,0.15);border-right:1px solid rgba(229,193,88,0.15);border-bottom:1px solid rgba(229,193,88,0.15);font-size:13.5px}
 
-.table-responsive{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;min-width:450px}
-th,td{padding:12px 14px;border-bottom:1px solid var(--line)}
-th{color:var(--gold);background:#000000;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.05em}
+.table-responsive{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;min-width:480px}
+th,td{padding:13px 16px;border-bottom:1px solid var(--line)}
+th{color:var(--gold);background:var(--bg);font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.06em}
 td{color:var(--muted)}td strong{color:#ffffff}
 tr:last-child td{border-bottom:0}
 
-.accordion{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;overflow:hidden;background:var(--panel);transition:border-color .2s}
-.accordion-header{padding:14px 16px;background:var(--panel2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;color:#ffffff;font-size:13.5px}
+.accordion{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;background:var(--panel);transition:all .2s ease}
+.accordion-header{padding:15px 18px;background:var(--panel2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;color:#ffffff;font-size:14px}
 .accordion-header:hover{color:var(--gold)}
-.accordion-content{padding:16px;display:none;border-top:1px solid var(--line);background:var(--panel)}
-.accordion.active{border-color:var(--gold)}
+.accordion-content{padding:18px;display:none;border-top:1px solid var(--line);background:var(--panel)}
+.accordion.active{border-color:var(--gold);box-shadow:0 0 16px var(--gold-glow)}
 .accordion.active .accordion-content{display:block}
 .accordion-header::after{content:'+';font-size:18px;color:var(--gold);font-weight:400;margin-left:8px}
 .accordion.active .accordion-header::after{content:'-'}
 
-.btn{background:var(--gold);color:#000000;border:0;border-radius:8px;padding:12px 18px;font-weight:750;cursor:pointer;transition:all .2s ease;font-size:13px;display:inline-flex;align-items:center;justify-content:center;width:100%}
+.btn{background:var(--gold);color:#0e1017;border:0;border-radius:10px;padding:12px 20px;font-weight:750;cursor:pointer;transition:all .2s ease;font-size:13px;display:inline-flex;align-items:center;justify-content:center;width:100%}
 @media(min-width:768px){.btn{width:auto}}
-.btn:hover{background:var(--gold-light);box-shadow:0 0 15px var(--gold-glow)}
+.btn:hover{background:var(--gold-light);box-shadow:0 0 18px var(--gold-glow)}
 .btn-secondary{background:var(--panel2);color:var(--gold);border:1px solid var(--line);text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600}
 .btn-secondary:hover{background:var(--line);color:#ffffff}
 
 .form-group{margin-bottom:14px}
 .form-group label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px;font-weight:600}
-.form-group input,.form-group textarea,.form-group select{width:100%;background:#000000;border:1px solid var(--line);border-radius:8px;color:var(--text);padding:12px;outline:none;font-size:13px;-webkit-appearance:none}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px;outline:none;font-size:13px;-webkit-appearance:none}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold)}
-.form-group textarea{min-height:85px;resize:vertical}
+.form-group textarea{min-height:90px;resize:vertical}
 
-.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:9.5px;font-weight:700;background:#000000;color:var(--gold);border:1px solid var(--line);margin-left:6px;white-space:nowrap}
+.badge{display:inline-block;padding:3px 9px;border-radius:99px;font-size:10px;font-weight:700;background:var(--bg);color:var(--gold);border:1px solid var(--line);margin-left:6px;white-space:nowrap}
 
-footer{text-align:center;padding:25px 16px;color:var(--muted);font-size:11px;border-top:1px solid var(--line);margin-top:30px;background:#000000}
+footer{text-align:center;padding:28px 16px;color:var(--muted);font-size:11.5px;border-top:1px solid var(--line);margin-top:35px;background:var(--bg)}
 </style>
 </head>
 <body>
@@ -326,15 +327,15 @@ footer{text-align:center;padding:25px 16px;color:var(--muted);font-size:11px;bor
 
       <h3>3.3 Escalation Matrix</h3>
       <div class="grid">
-        <div class="card" style="background:#000000">
+        <div class="card" style="background:var(--bg)">
           <h4 style="margin-top:0">Level 1 — Standard Operations</h4>
           <p class="muted">Handled directly by assigned Service Owner within normal SOP boundaries.</p>
         </div>
-        <div class="card" style="background:#000000">
+        <div class="card" style="background:var(--bg)">
           <h4 style="margin-top:0">Level 2 — Operational Exceptions</h4>
           <p class="muted">Escalated to Operations Supervisor when steps deviate or minor delays occur.</p>
         </div>
-        <div class="card" style="background:#000000">
+        <div class="card" style="background:var(--bg)">
           <h4 style="margin-top:0">Level 3 — Critical Incidents</h4>
           <p class="muted">Escalated immediately to Founder/Authorized Decision Maker (privacy breaches, financial errors, major outages).</p>
         </div>
@@ -387,7 +388,7 @@ footer{text-align:center;padding:25px 16px;color:var(--muted);font-size:11px;bor
     <div class="card">
       <h2>Part V — Business Implementation</h2>
       <div class="grid">
-        <div class="card" style="background:#000000">
+        <div class="card" style="background:var(--bg)">
           <h3 style="margin-top:0">AXU-II · AI Solutions</h3>
           <p><strong>Great State:</strong> Access & apply curated AI tools/workflows with zero friction and measurable productivity gains.</p>
           <h4>Brand-Specific SOP Modules:</h4>
@@ -398,7 +399,7 @@ footer{text-align:center;padding:25px 16px;color:var(--muted);font-size:11px;bor
           </ul>
         </div>
 
-        <div class="card" style="background:#000000">
+        <div class="card" style="background:var(--bg)">
           <h3 style="margin-top:0">YGLC · Premium Learning</h3>
           <p><strong>Great State:</strong> Build practical fingerstyle capabilities with verified progress and structured feedback.</p>
           <h4>Brand-Specific SOP Modules:</h4>
@@ -409,7 +410,7 @@ footer{text-align:center;padding:25px 16px;color:var(--muted);font-size:11px;bor
           </ul>
         </div>
 
-        <div class="card" style="background:#000000">
+        <div class="card" style="background:var(--bg)">
           <h3 style="margin-top:0">SG · Premium Transformation</h3>
           <p><strong>Great State:</strong> Refine thinking, systems, and execution capacity through private founder experiences.</p>
           <h4>Brand-Specific SOP Modules:</h4>
@@ -434,7 +435,7 @@ footer{text-align:center;padding:25px 16px;color:var(--muted);font-size:11px;bor
       <h3>6.2 Interactive SOP Audit Log</h3>
       <p class="muted" style="font-size:12px; margin-bottom:14px">Log an SOP execution or audit check directly to Google Sheets.</p>
       
-      <div class="card" style="background:#000000; padding:16px">
+      <div class="card" style="background:var(--bg); padding:18px">
         <form id="sopLogForm" onsubmit="submitSOPLog(event)">
           <div class="grid">
             <div class="form-group">

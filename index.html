@@ -3,109 +3,143 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Founder Command Center · Mobile Edition</title>
+<title>Founder Command Center · Apple Reminders Edition</title>
 <style>
-/* Monochrome Minimalist Theme (Black, White, Slate & Gold Accents) */
-:root{--bg:#080808;--panel:#111111;--panel2:#1a1a1a;--line:#262626;--text:#f5f5f7;--muted:#8e8e93;--accent:#ffffff;--accent2:#d4d4d8;--gold:#e2b714;--red:#ff453a;--radius:14px}
+/* Apple Reminders & iOS Minimalist Luxury Theme (Deep OLED Black & Gold Accents) */
+:root{
+  --bg:#000000;
+  --panel:#1c1c1e;
+  --panel2:#2c2c2e;
+  --line:#38383a;
+  --text:#f5f5f7;
+  --muted:#86868b;
+  --accent:#ffffff;
+  --gold:#f59e0b;
+  --gold-glow:rgba(245, 158, 11, 0.15);
+  --red:#ff453a;
+  --radius:16px;
+  --radius-sm:10px;
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;padding-bottom:70px}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;padding-bottom:90px}
+
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 
-.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
-.side{background:#000000;border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;overflow:auto}
-.brand{font-size:11px;letter-spacing:.22em;color:var(--gold);font-weight:800}
-.side h1{font-size:19px;line-height:1.2;margin:8px 0 22px;color:#ffffff;letter-spacing:-.02em}
-.nav{display:grid;gap:6px}
-.nav button{background:transparent;color:var(--muted);border:0;text-align:left;padding:11px 12px;border-radius:8px;width:100%;font-weight:500;transition:all .2s ease}
-.nav button.active,.nav button:hover{background:var(--panel2);color:var(--text);border-left:2px solid var(--gold)}
-.sidefoot{position:absolute;bottom:20px;left:16px;right:16px;color:var(--muted);font-size:11px}
+.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
 
-.main{padding:32px;max-width:1500px;width:100%;margin:auto}
-.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px}
-.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.18em;font-weight:800}
-.top h2{font-size:26px;margin:4px 0;letter-spacing:-.03em}
+/* Apple Sidebar Style */
+.side{background:#000000;border-right:1px solid var(--line);padding:28px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{font-size:10px;letter-spacing:.25em;color:var(--gold);font-weight:800;text-transform:uppercase}
+.side h1{font-size:20px;line-height:1.2;margin:6px 0 24px;color:#ffffff;letter-spacing:-.02em;font-weight:700}
+.nav{display:grid;gap:4px}
+.nav button{background:transparent;color:var(--muted);border:0;text-align:left;padding:10px 14px;border-radius:var(--radius-sm);width:100%;font-weight:500;transition:all .2s ease;display:flex;align-items:center;gap:10px;font-size:13.5px}
+.nav button.active,.nav button:hover{background:var(--panel);color:var(--text);font-weight:600}
+.nav button.active{color:var(--gold)}
+.sidefoot{position:absolute;bottom:20px;left:18px;right:18px;color:var(--muted);font-size:11px}
+
+/* Main Content Area */
+.main{padding:36px;max-width:1400px;width:100%;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:28px}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.2em;font-weight:800;text-transform:uppercase}
+.top h2{font-size:30px;margin:4px 0;letter-spacing:-.03em;font-weight:700;color:#ffffff}
 .muted{color:var(--muted)}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.btn{background:var(--text);color:#000000;border:0;border-radius:8px;padding:10px 16px;font-weight:700;transition:opacity .2s;display:inline-flex;align-items:center;justify-content:center}
-.btn:hover{opacity:0.9}
-.btn.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
-.btn.danger{background:#3a1212;color:#ff8080}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
 
-.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
-.card h3{margin:0 0 12px;font-size:15px;color:#ffffff}
-.metric{font-size:32px;font-weight:800;letter-spacing:-.04em;color:#ffffff}
-.metric small{font-size:12px;color:var(--muted);font-weight:500}
-.pill{display:inline-flex;align-items:center;border:1px solid var(--line);background:var(--panel2);padding:4px 12px;border-radius:99px;font-size:11px;color:var(--gold);font-weight:600}
+/* Apple Style Buttons & Cards */
+.btn{background:var(--text);color:#000000;border:0;border-radius:var(--radius-sm);padding:10px 18px;font-weight:650;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+.btn:hover{opacity:0.85}
+.btn.secondary{background:var(--panel);color:var(--text);border:1px solid var(--line)}
+.btn.secondary:hover{background:var(--panel2)}
+
+.grid{display:grid;gap:18px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* Reminders Grouped List Card Style */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;min-width:0;box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+.card h3{margin:0 0 14px;font-size:16px;color:#ffffff;font-weight:600;letter-spacing:-.01em}
+.metric{font-size:34px;font-weight:700;letter-spacing:-.03em;color:#ffffff}
+.metric small{font-size:13px;color:var(--muted);font-weight:400}
+.pill{display:inline-flex;align-items:center;border:1px solid var(--line);background:var(--panel2);padding:5px 12px;border-radius:99px;font-size:11.5px;color:var(--gold);font-weight:600}
 .good{color:var(--text)}
-.bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:10px}
-.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--muted),var(--text));border-radius:99px}
-.section{margin:24px 0 12px;display:flex;justify-content:space-between;align-items:center}
-.section h3{margin:0;font-size:18px;color:#ffffff}
 
-.field{display:grid;gap:6px;margin:10px 0}
-.field label{color:var(--muted);font-size:12px}
-.field input,.field select,.field textarea,.score input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:12px;outline:none;-webkit-appearance:none}
-.field input:focus,.field textarea:focus{border-color:var(--gold)}
-.field textarea{min-height:85px;resize:vertical}
-.scorelist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.score{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
-.score label{font-size:12px;color:var(--muted)}
-.score input{width:60px;text-align:center;padding:6px;border-radius:6px}
-.check{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+/* Apple Style Progress Bar */
+.bar{height:6px;background:var(--panel2);border-radius:99px;overflow:hidden;margin-top:12px}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),#ffffff);border-radius:99px}
+
+.section{margin:28px 0 14px;display:flex;justify-content:space-between;align-items:center}
+.section h3{margin:0;font-size:19px;color:#ffffff;font-weight:600}
+
+/* Form Fields & Apple Reminders Checklists */
+.field{display:grid;gap:6px;margin:12px 0}
+.field label{color:var(--muted);font-size:12px;font-weight:500}
+.field input,.field select,.field textarea,.score input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text);padding:12px 14px;outline:none;-webkit-appearance:none;font-size:14px}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold)}
+.field textarea{min-height:90px;resize:vertical}
+
+.scorelist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.score{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 14px}
+.score label{font-size:12.5px;color:var(--muted)}
+.score input{width:65px;text-align:center;padding:6px;border-radius:6px}
+
+/* Apple Reminders Checklist Item Design */
+.check{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
 .check:last-child{border:0}
-.check input{accent-color:var(--gold);width:18px;height:18px;margin-top:2px}
-.check small{display:block;color:var(--muted);font-size:11px}
+.check input[type="checkbox"]{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid var(--muted);border-radius:50%;outline:none;cursor:pointer;display:grid;place-content:center;transition:all .2s;margin-top:1px;background:var(--bg)}
+.check input[type="checkbox"]:checked{background:var(--gold);border-color:var(--gold)}
+.check input[type="checkbox"]::before{content:"";width:10px;height:6px;border-left:2px solid #000;border-bottom:2px solid #000;transform:rotate(-45deg) translate(1px,-1px);opacity:0;transition:opacity .2s}
+.check input[type="checkbox"]:checked::before{opacity:1}
+.check small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
 
-.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;-webkit-overflow-scrolling:touch}
-.tabs button{background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:8px;font-weight:600;white-space:nowrap}
-.tabs button.active{background:var(--text);color:#000000;border-color:var(--text)}
+/* Apple Tabs */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;-webkit-overflow-scrolling:touch}
+.tabs button{background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:9px 16px;border-radius:var(--radius-sm);font-weight:600;white-space:nowrap;font-size:13px;transition:all .2s}
+.tabs button.active,.tabs button:hover{background:var(--panel2);color:var(--gold);border-color:var(--gold)}
 .hidden{display:none!important}
-.tag{display:inline-block;border:1px solid var(--line);background:var(--panel2);border-radius:6px;padding:2px 8px;font-size:10px;color:var(--gold);font-weight:700}
-.notice{background:#141414;border:1px solid var(--line);border-radius:10px;padding:14px;color:var(--muted);font-size:12px}
+
+.tag{display:inline-block;border:1px solid var(--line);background:var(--panel2);border-radius:6px;padding:3px 9px;font-size:11px;color:var(--gold);font-weight:600}
+.notice{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;color:var(--muted);font-size:13px}
 .hero{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.dna{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dna{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .dna .field{margin:0}
-.kpi{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.kpi{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
 .kpi:last-child{border:0}
 
-/* Data Table Styling for Tasks & KPIs */
-.table-wrap{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
-table.data-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;min-width:500px}
-table.data-table th{background:var(--panel2);color:var(--gold);padding:12px;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
-table.data-table td{padding:12px;border-bottom:1px solid var(--line);color:var(--text)}
+/* Data Table Styling */
+.table-wrap{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:var(--radius-sm);-webkit-overflow-scrolling:touch}
+table.data-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;min-width:550px}
+table.data-table th{background:var(--panel2);color:var(--gold);padding:14px;border-bottom:1px solid var(--line);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+table.data-table td{padding:14px;border-bottom:1px solid var(--line);color:var(--text)}
 table.data-table tr:last-child td{border-bottom:0}
-.badge-critical{background:#3a1212;color:#ff8080;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block}
-.badge-high{background:#3a2c12;color:#ffd180;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block}
-.badge-medium{background:#122a3a;color:#80d4ff;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block}
-.badge-later{background:var(--panel2);color:var(--muted);padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block}
 
-/* Mobile Navigation Bar */
+.badge-critical{background:rgba(255,69,58,0.15);color:var(--red);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;display:inline-block;border:1px solid rgba(255,69,58,0.3)}
+.badge-high{background:rgba(245,158,11,0.15);color:var(--gold);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;display:inline-block;border:1px solid rgba(245,158,11,0.3)}
+.badge-medium{background:rgba(10,132,255,0.15);color:#0a84ff;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;display:inline-block;border:1px solid rgba(10,132,255,0.3)}
+.badge-later{background:var(--panel2);color:var(--muted);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;display:inline-block}
+
+/* iOS Bottom Navigation Bar */
 .mobile-nav{display:none}
 
-/* MOBILE RESPONSIVE DESIGN (Native App UI) */
 @media(max-width:900px){
-  body{padding-bottom:80px}
+  body{padding-bottom:95px}
   .app{grid-template-columns:1fr}
-  .side{display:none} /* Hide Desktop Sidebar on Mobile */
-  
-  .main{padding:16px}
-  .top{flex-direction:column;gap:12px;margin-bottom:16px}
-  .top h2{font-size:22px}
+  .side{display:none}
+  .main{padding:18px}
+  .top{flex-direction:column;gap:12px;margin-bottom:18px}
+  .top h2{font-size:24px}
   .actions{width:100%;display:grid;grid-template-columns:1fr 1fr}
-
   .g4,.g3,.g2,.scorelist,.dna{grid-template-columns:1fr}
 
-  /* Bottom App Bar */
+  /* iOS Floating Bottom Bar */
   .mobile-nav{
     display:flex;
     position:fixed;
     bottom:0;
     left:0;
     right:0;
-    height:65px;
-    background:#000000;
+    height:70px;
+    background:rgba(28,28,30,0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-top:1px solid var(--line);
     z-index:9999;
     justify-content:space-around;
@@ -119,17 +153,18 @@ table.data-table tr:last-child td{border-bottom:0}
     display:flex;
     flex-direction:column;
     align-items:center;
-    font-size:10px;
-    font-weight:600;
+    font-size:10.5px;
+    font-weight:500;
     gap:4px;
     padding:6px;
     flex:1;
   }
   .mobile-nav button.active{
     color:var(--gold);
+    font-weight:600;
   }
   .mobile-nav button span.icon{
-    font-size:18px;
+    font-size:20px;
   }
 }
 </style>
@@ -138,25 +173,25 @@ table.data-table tr:last-child td{border-bottom:0}
 <body>
 
 <div class="app">
-<!-- DESKTOP SIDEBAR -->
+<!-- APPLE STYLE SIDEBAR -->
 <aside class="side">
   <div class="brand">ECONOMIC ARCHITECT</div>
   <h1>Founder<br>Command Center</h1>
   <nav class="nav" id="nav">
-    <button class="active" onclick="switchPage('dashboard', this)">◫ Overview</button>
-    <button onclick="switchPage('daily', this)">◷ Daily Scorecard</button>
-    <button onclick="switchPage('habits', this)">✓ 5 Habits</button>
-    <button onclick="switchPage('brands', this)">◇ Brand DNA</button>
-    <button onclick="switchPage('thinking', this)">⌘ Thinking Gym</button>
-    <button onclick="switchPage('tasks', this)" style="color:var(--gold); font-weight:700;">☷ Task Operating System</button>
-    <button onclick="switchPage('checklists', this)">☷ Checklists</button>
-    <button onclick="switchPage('business', this)">↗ Business OS</button>
-    <button onclick="switchPage('review', this)">▤ Reviews & Data</button>
-    <a href="sop.html" style="text-decoration: none; display: block; margin-top: 10px;">
-      <button type="button" style="width: 100%; color: var(--gold); border: 1px solid var(--line); background: rgba(226,183,20,0.05); text-align: left; padding: 11px 12px; border-radius: 8px; cursor: pointer; font-weight: 600;">📖 SOP Bible</button>
+    <button class="active" onclick="switchPage('dashboard', this)"><span>✦</span> Overview</button>
+    <button onclick="switchPage('daily', this)"><span>⏱︎</span> Daily Scorecard</button>
+    <button onclick="switchPage('habits', this)"><span>✓</span> 5 Habits</button>
+    <button onclick="switchPage('brands', this)"><span>◇</span> Brand DNA</button>
+    <button onclick="switchPage('thinking', this)"><span>⌘</span> Thinking Gym</button>
+    <button onclick="switchPage('tasks', this)" style="color:var(--gold); font-weight:650;"><span>☰</span> Task Operating System</button>
+    <button onclick="switchPage('checklists', this)"><span>📋</span> Checklists</button>
+    <button onclick="switchPage('business', this)"><span>↗</span> Business OS</button>
+    <button onclick="switchPage('review', this)"><span>📊</span> Reviews & Data</button>
+    <a href="sop.html" style="text-decoration: none; display: block; margin-top: 12px;">
+      <button type="button" style="width: 100%; color: var(--gold); border: 1px solid var(--line); background: rgba(245,158,11,0.06); text-align: left; padding: 11px 14px; border-radius: var(--radius-sm); cursor: pointer; font-weight: 600;">📖 SOP Bible</button>
     </a>
   </nav>
-  <div class="sidefoot">Mobile-Optimized · Supabase Synced</div>
+  <div class="sidefoot">Apple Design Edition · Synced</div>
 </aside>
 
 <!-- MAIN CONTENT CONTAINER -->
@@ -180,7 +215,7 @@ table.data-table tr:last-child td{border-bottom:0}
     <div class="card"><div class="muted small">TODAY'S SCORE</div><div class="metric" id="dashScore">7.5<small> / 10</small></div><div class="good" id="dayLabel">GOOD DAY</div><div class="bar"><span id="scoreBar" style="width:75%"></span></div></div>
     <div class="card"><div class="muted small">QUALITY DAYS</div><div class="metric"><span id="qualityDays">0</span><small> / 200 target</small></div><div class="muted small">365-day operating year</div></div>
     <div class="card"><div class="muted small">DEEP WORK</div><div class="metric" id="deepMetric">7.5<small> / 10</small></div><div class="muted small">Protect highest-value output</div></div>
-    <div class="card"><div class="muted small">PRIMARY ATTENTION</div><div class="metric" style="font-size:18px" id="attentionMetric">Marketing & Distribution</div><div class="muted small">One primary area at a time</div></div>
+    <div class="card"><div class="muted small">PRIMARY ATTENTION</div><div class="metric" style="font-size:17px" id="attentionMetric">Marketing & Distribution</div><div class="muted small">One primary area at a time</div></div>
   </div>
   <div class="section"><h3>Today's Operating Focus</h3><span class="pill">One day · One primary outcome</span></div>
   <div class="grid g2">
@@ -188,7 +223,7 @@ table.data-table tr:last-child td{border-bottom:0}
       <h3>Primary Outcome</h3>
       <div class="field"><label>What must be true by the end of today?</label><textarea id="primaryOutcome" placeholder="e.g. Validate one paid offer with qualified prospects"></textarea></div>
       <div class="field"><label>Evidence / output link or note</label><input id="outputEvidence" placeholder="What did you actually produce?"></div>
-      <button class="btn" style="margin-top:8px; width:100%;" onclick="saveDaily()">Save Today's Outcome</button>
+      <button class="btn" style="margin-top:10px; width:100%;" onclick="saveDaily()">Save Today's Outcome</button>
     </div>
     <div class="card">
       <h3>Founder Rules</h3>
@@ -211,9 +246,9 @@ table.data-table tr:last-child td{border-bottom:0}
       <div class="field"><label>Day Status</label><select id="dayStatus"><option>Good Day</option><option>Average Day</option><option>Recovery Day</option><option>Low-Quality Day</option></select></div>
     </div>
   </div>
-  <div class="grid g2" style="margin-top:16px">
+  <div class="grid g2" style="margin-top:18px">
     <div class="card"><h3>Attention Area</h3><div class="field"><label>Primary attention</label><input id="mainAttention" value="Marketing, Distribution"></div><div class="field"><label>Applied Today</label><textarea id="appliedToday"></textarea></div></div>
-    <div class="card"><h3>Day Review</h3><div class="field"><label>Value Created</label><textarea id="valueCreated"></textarea></div><div class="field"><label>Attention Leak</label><textarea id="attentionLeak"></textarea></div><button class="btn" style="margin-top:8px; width:100%;" onclick="saveDaily()">Save Daily Record</button></div>
+    <div class="card"><h3>Day Review</h3><div class="field"><label>Value Created</label><textarea id="valueCreated"></textarea></div><div class="field"><label>Attention Leak</label><textarea id="attentionLeak"></textarea></div><button class="btn" style="margin-top:10px; width:100%;" onclick="saveDaily()">Save Daily Record</button></div>
   </div>
 </section>
 
@@ -221,8 +256,8 @@ table.data-table tr:last-child td{border-bottom:0}
 <section id="habits" class="page hidden">
   <div class="card">
     <div class="hero"><div><h3>5 Main Habits</h3><div class="muted small">Daily operating standards.</div></div><span class="pill">Daily</span></div>
-    <div id="habitList" style="margin-top:12px"></div>
-    <button class="btn" style="margin-top:14px; width:100%;" onclick="saveHabits()">Save Habits</button>
+    <div id="habitList" style="margin-top:14px"></div>
+    <button class="btn" style="margin-top:16px; width:100%;" onclick="saveHabits()">Save Habits</button>
   </div>
 </section>
 
@@ -244,7 +279,7 @@ table.data-table tr:last-child td{border-bottom:0}
       <div class="field"><label>Live Problem</label><textarea id="thinkingProblem" placeholder="Describe real business problem"></textarea></div>
       <div class="field"><label>1 · First Principles</label><textarea id="firstPrinciples"></textarea></div>
       <div class="field"><label>2 · Second-Order Thinking</label><textarea id="secondOrder"></textarea></div>
-      <button class="btn" style="margin-top:8px; width:100%;" onclick="saveThinking()">Save Drill</button>
+      <button class="btn" style="margin-top:10px; width:100%;" onclick="saveThinking()">Save Drill</button>
     </div>
     <div class="card">
       <h3>Business Models</h3>
@@ -326,24 +361,24 @@ table.data-table tr:last-child td{border-bottom:0}
       <div class="notice">Connected to Supabase PostgreSQL.</div>
     </div>
   </div>
-  <div class="card" style="margin-top:16px"><h3>Recent Daily Records</h3><div id="records"></div></div>
+  <div class="card" style="margin-top:18px"><h3>Recent Daily Records</h3><div id="records"></div></div>
 </section>
 
 </main>
 </div>
 
-<!-- MOBILE BOTTOM NAVIGATION BAR -->
+<!-- iOS BOTTOM NAVIGATION BAR -->
 <nav class="mobile-nav">
   <button class="active" onclick="switchMobileTab('dashboard', this)">
-    <span class="icon">◫</span>
+    <span class="icon">✦</span>
     <span>Overview</span>
   </button>
   <button onclick="switchMobileTab('tasks', this)">
-    <span class="icon">☷</span>
+    <span class="icon">☰</span>
     <span>Tasks</span>
   </button>
   <button onclick="switchMobileTab('daily', this)">
-    <span class="icon">◷</span>
+    <span class="icon">⏱︎</span>
     <span>Daily</span>
   </button>
   <button onclick="switchMobileTab('habits', this)">
@@ -351,7 +386,7 @@ table.data-table tr:last-child td{border-bottom:0}
     <span>Habits</span>
   </button>
   <button onclick="switchMobileTab('review', this)">
-    <span class="icon">▤</span>
+    <span class="icon">📊</span>
     <span>Data</span>
   </button>
 </nav>
